@@ -1,0 +1,153 @@
+#include <set>
+
+set<int> s; declara un set vid de elementede tip int.
+            Elementele care se vor insera ulterior in set,se ordoneaza in mod
+            automat crescator
+
+set<double, greater<double> > s; declara un set vid de double.
+            Elementele vor fi ordonate descrescator.
+
+int a[]={45,34,23,26};
+set<int> s(a,a+4); declara un set de int in care se copiaza elementele din sirul a[].
+            Elementele vor fi ordonate crescator.
+
+char a[]="CAB";
+set<char,greater<char> > s(a,a+3); declara un set de char,in care se insereaza elemente
+                                 copiate din sirul a[].Elementele vor fi ordonate
+                                 descrescator (s={'C','B','A'})
+
+Iteratorii claselor set si multiset:
+iterator begin();               returneaza un iterator bidirectional la primul
+const_iterator begin() const;   element al set-ului
+                        
+iterator end();                 returneaza un iterator bidirectional care
+const_iterator end() const      indica dincolo de ultimul element al set-ului.
+
+reverse_iterator rbegin();               returneaza un reverse iterator bidirectional care
+const_reverse_iterator rbegin() const;   indica imediat dincolo de sfasitul secventei.Astfel
+                                         desemneaza inceputul seventei inversate.  
+
+reverse_iterator rend();
+const_reverse_iterator rend() const;     returneaza un reverse iterator bidirectional care
+                                         indica primul element al secventei.Astfel,
+                                         desemneaza sfarsitul secventei inversate
+
+Operatii care nu schimba containerul
+Functiile membre de informare:
+empty();
+size();
+max_size();
+
+Functii membre de observare:
+key_comp();
+value_comp();
+
+OBS:pentru set si multiset cheia coincide cu valoarea. Prin urmare,key_comp()
+si value_comp() lucreaza identic.
+
+
+Functii membru:
+s.insert(x); insereaza un element de valoare x in containerul s.
+                Pentru set.Functia determina daca in container mai exista un element y care are ordine
+             echivalenta cu cea a lui x.Daca nu,atunci creeaza un asemenea element y si il
+             initializeaza cu x,respectiv creeaza un iterator it care-l indica pe y.Daca inserarea
+             are loc functia returneaza perechea pair(it,true).Altfel,returneaza pair(it,false).
+             Mai putin riguros,daca elementul x exista deja in set,inserarea nu mai are loc si
+             membrul bool al perechii indica esuarea prin valoarea false.
+                Pentru multiset.Inserarea reuseste intotdeauna deoarece multiset admite elemente
+             cu ordine echivalenta.Functia insereaza elementul x in container,apoi returneaza un
+             iterator care desemna elementul inserat.
+
+s.insert(it,x);   insereaza un element de valoare x in containerul s,folosind it ca punct de plecare pentru cautarea
+             pozitiei de inserare. Pentru set nu se insereaza un element duplicat.Functia returneaza
+             Functia returneaza un iterator la elementul de valoare x nou inserat sau care exista deja.
+
+s.insert(it1,it2);   insereaza in s o copie a tuturor elementelor din intervalul [it1,it2).
+s.erase(it);      sterge din s elementul indicat de it
+s.erase(x);       sterge din s toate elementele care au cheia egala cu x.Returneaza numarul
+                  de elemente sterse(maxim 1 pentru set).
+s.erase(it1,it2);     sterge din s toate elementele din intervalul [it1,it2)
+s1.swap(s2);          interschimba continutul containerelor s1 si s2.Containerele trebuie sa aiba amandoua acelasi
+                     tip:doua set-uri sau doua multiset-uri.
+s.clear();           sterge toate elementele din container
+
+
+   Operatiile de inserare si stergere nu invalideaza iteratorii  care indicau elemente in set-uri si multiset-uri,cu exceptia
+acelor iteratori care indicau elementele sterse. 
+
+typedef set<int>::iterator IS;
+pair<IS,bool> p;  ///p-obiect de tip pereche
+ 
+if(p.second==true)
+       cout<<*p.first;
+
+pair<T1,T2> p;
+p are doi membri:
+p.first de tip T1;
+p.second de tip T2;
+
+
+
+Operatii speciale de cautare:
+
+s.find(x);    cauta in containerul s primul element a carui cheie are ordine de sortare echivalenta
+             cu x si returneaza un iterator la elementul gasit.Daca un asemenea element nu exista,
+             atunci returneaza end();
+
+s.count(x);   returneaza numarul de elemente cu cheia echivalenta cu x din containerul s
+             (pentru set,0 sau 1)
+
+s.lower_bound(x);  returneaza un iterator la primul element a carui cheie nu este mai mica decat x.
+                   Daca un asemenea element nu exista functia returneaza end();
+
+s.upper_bound(x);  retuneaza un iterator la primul element a carui cheie este mai mare decat x.Daca
+                   un asemenea element nu exista,functia returneaza end();
+
+s.equal_range(x)   gaseste un interval care contine toate elementele a caror cheie este x.
+                   Returneaza o pereche p de iteratori,astfel incat p.first==lower_bound(x)
+                   si p.second==upper_bound(x).
+
+
+    "*equal_range('b'):";
+    
+    for(it=ms.equal_range('b').first;  ;++it)
+    {
+        cout<<*it<<' ';
+        if(it==ms.equal_range('b').second)  break;
+    }
+
+
+
+
+
+      Functiile membre de cautare sunt mai rapide decat algoritmii STL cu acelasi nume. De aceea,
+trebuie preferate intotdeauna.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

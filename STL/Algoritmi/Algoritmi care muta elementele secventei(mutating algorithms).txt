@@ -1,0 +1,61 @@
+
+
+     Algoritmi                                           Complexitate
+  
+  copy(fist,last,result)                           Exact last-first atribuiri
+ 
+  copy_backward(first,last,result)                 Exact last-first atribuiri
+
+  swap(a,b)                                        Constanta 
+  swap_ranges(first1,last1,first2)                 Executa last1-first1 apeluri ale functiei swap()
+  iter_swap(it1,it2)
+
+  transform(first,last,result,UnOp uop)            Executa last-first apeluri ale obiectului 
+                                                   functie uop
+  transform(first1,last1,first2,result,BinOp bop)  Executa last1-first1 apeluri ale obiectului
+                                                   functie bop
+
+  replace(first,last,old_val,new_val)              Executa last-first apeluri ale predicatului
+  replace_if(first,last,Pred pr,new_val)           corespunzator
+
+  replace_copy(first,last,result,old_val,new_val)         Aplica predicatul corespunzator,de 
+  replace_copy_if(first,last,result,Pred pr,new_val)      last-first ori
+ 
+  fill(first,last,val)                 last-first sau n atribuiri
+  fill_n(first,n,val)
+
+  generate(first,last,Gen g)           last-first sau n apeluri ale generatorului g() 
+  generate_n(first,n,Gen g)            si tot atatea atribuiri
+
+  remove(first,last,val)               Executa last-first apeluri ale predicatului corespunzator
+  remove_if(first,last,Pred pr)
+
+  
+  remove_copy(first,last,result,val)          Executa last-first apeluri ale predicatului 
+  remove_copy_if(first,last,result,Pred pr)   corespunzator
+
+  unique(first,last)                          Executa last-first-1 apeluri ale predicatului
+  unique(first,last,BinPred pred)             corespunzator
+ 
+  unique_copy(first,last,result)              Aplica predicatul corespunzator,de last-first-1 ori
+  unique_copy(first,last,result,BinPred pr)
+
+  reverse(first,last)                         Executa (last-first)/2 interschimbari
+  
+  reverse_copy(first,last,result)             Executa last-first atribuiri
+
+  rotate(first,middle,last)                   Cel mult last-first interschimbari
+  
+  rotate_copy(first,middle,last,result)       Cel mult last-first atribuiri
+  
+  random_shuffle(first,last)                     Exact last-first-1 interschimbari
+  random_shuffle(first,last,RanNumGen& rand)
+
+  partition(first,last,Pred pr)              Exact last-first aplicari ale predicatului si cel
+                                             mult (last-first)/2 interschimbari
+  stable_partition(first,last,Pred pr)       Exact last-first aplicari ale predicatului si cel
+                                             mult  (last-first)*log(last-first) interschimbari
+   Idiomul erase-remove
+  Daca doriti sa stergeti din container toate elementele cu o anumita valoare,atunci folositi
+  idiom-ul erase-remove
+

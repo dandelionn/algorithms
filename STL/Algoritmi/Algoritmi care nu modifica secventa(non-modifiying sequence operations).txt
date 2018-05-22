@@ -1,0 +1,49 @@
+
+ NOTATII:
+ -Iteratori:InIt si OutIt -pentru imput iterators si output iterators,
+            FwdIt -pentru forward iterators
+            BidtIt -pentru bidirectional iterators
+            RanIt -pentru random access iterators
+ -Predicate:BinPred -pentru predicate binare
+            Pred -pentru predicate unare
+ -Functii si functori:Gen -generatori(f())
+                      UnFunc -functii unare sau functori unari(f(x))
+                      BinFunc-functii binare sau functori binari(f(x,y))
+ -Operatii:UnOp-operatii unare(functii sau functori)
+           BinOp-operatii binare(functii sau functori)
+
+        Algorimi                                        Complexitate
+ 
+ for_each(it1,it2,UnFunc)                           Liniara in n,unde n este it2-it1
+ 
+ count(it1,it2,val)                                    Evalueaza expresia *it==val de it2-it1 ori
+ count_if(it1,it2,Pred)                                Evalueaza predicatul pr de it2-it1 ori
+
+ find(it1,it2,val)                                     Evalueaza expresia *it==val de cel mult it2-it1 ori
+ find_if(it1,it2,Pred)                                 Evalueaza predicatul pr de cel mult it2-it1 ori
+
+ search(first1,las1,first2,last2)                      Aplica == sau predicatul binar,de cel mult
+ search(first1,last1,first2,last2,BinPred)             (last1-first1)*(last2-first2) ori
+                                                         
+ search_n(first,last,n,val)                            Aplica == sau predicatul binar,de cel mult 
+ search_n(first,last,n,val,Binpred)                    (last-first)*n ori
+
+ equal(first1,last1,first2)                            Aplica == sau predicatul binar,de cel mult 
+ equal(first1,last1,first2,BinPred)                    (las1-first1) ori
+
+ find_first_of(first1,last1,first2,last2);             Aplica == sau predicatul binar de cel mult
+ find_first_of(first1,last1,first2,last2,BinPred)      (last1-first1)*(last2-first2) ori.
+                      
+                                                          
+                                                          
+                                                         
+                                                          
+                                                          
+                                                          
+                                                         
+                                                          
+                                                          
+                                                          
+                                                         
+                                                          
+                          

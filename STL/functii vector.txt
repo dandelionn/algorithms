@@ -1,0 +1,84 @@
+vector<T> d1;
+vector<T> d2(n);
+vector<T> d3(n,t);
+vector<T> d4(n,t,a1);
+vector<T> d5(it1,it2,a1);
+vector<T> d6(it1,it2);
+
+vector<T> v2(v1);        //Construieste v2 din v1 prin copiere
+vector<T> v3(b+1,b+3);   //Preia un interval din b[](tablou unidimensional);intervalul:[b+1,b+3)
+vector<T> v4(b,b+5)
+vector<T> v1(&v[0],&v[0]+5);  //Copiaza in v1 cinci elemente ale lui v
+
+v.size();
+v.empty(); //returneaza true or false
+v.resize(n);
+v.resize(n,x);
+v.size_max();
+
+v.push_back(x);
+v.pop_back();
+
+v.back();
+v.front();
+v.clear();
+
+
+v.assign(it1,it2); //Inlocuieste secventa controlata
+                        //de v, cu secventa cuprinsa in intervalul [it1,it2)
+
+v.assign(n,x); //Inlocuieste secventa controlata
+                       //de v,cu o secventa formata din n elem de valoare x
+
+
+
+Operatii cu obiecte de tip vector
+-operatorii relationali(toti operatorii relationali compara elementele vectorilor dpv lexicografic
+-operatorul de atribuire
+v1.swap(v2);  ///Interschimba v1 cu v2(functie membra)
+swap(v1,v2); ///Interschimba v1 cu v2 (functie globala)
+
+Iteratori
+vector<T>::iterator it1;
+vector<T>::const_iterator it2;
+
+it=v.begin();
+it=v.end();
+
+Reverse iterators
+vector<T>::reverse_iterator rit1;
+vector<T>::const_reverse_iterator rit2;
+
+rit1=v.rbegin();
+rit2=v.rend();
+sau
+vector<int>::reverse_iterator r1(v.end());
+vector<int>::reverse_iterator r2(v.begin());
+
+v.capacity();  //returneaza numarul total de elemente pe care vectorul le poate pastra,
+               fara sa fie necesara realocarea memoriei
+///Realocarea invalideaza toate referintele,pointerii si iteratorii pentru elementele unui vector.
+v.reserve();
+
+v.~vector<T>() destructor
+
+Idiom-ul "swap trick"      //Singura cale sigura de a elibera toata memoria rezervata este folosirea
+vector<T>().swap(v);         //acestui idiom.
+
+Idiomul "shrink-to-fit"
+vector<T>(v).swap(v); 
+
+Operatii de inserare in vectori:
+itr=v.insert(it,x);   //returneaza un iterator care indica noul element inserat
+v.insert(it,n,x);
+v.insert(it,it1,it2);
+
+Operatii de stergere in vectori:
+it=v.erase(it);
+it=v.erase(it1,it2);
+
+clasa template vector<bool>
+vector<bool> v(3);             //v=[false,false,false]
+v[0]=~v[1];                    //v=[true,false,false]
+v.flip();                        //v=[false,true,true]
+vector<bool>::swap(v[0],v[1]); //v=[true,false,true]

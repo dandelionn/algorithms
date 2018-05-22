@@ -1,0 +1,27 @@
+#include <queue>
+
+priority_queue<int> q1;   coada vida de int
+priority_queue<char,deque<char> > q2 coada vida de elemente de tip char,care foloseste ca si container
+                                     intern deque
+priority_queue<string, deque<string>, greater<string> > q3;
+                          coada vida de stringuri,care foloseste ca si container intern un obiect
+                          deque<string> in locul unui vector<string> si greater<string>,ca si
+                          criteriu de comparatie(elementul cu prioritatea minima va fi in capul cozii)
+
+priority_queue() creeaza o coada vida;
+priority_queue(it1,it2)  creeaza o coada in care se copiaza toate elementele din
+                         intervalul [it1,it2),unde it1 si it2 sunt cel putin iteratori de intrare
+
+push() insereaza elementul x in coada;
+pop() inlatura un element din coada(cel cu prioritatea maxima);
+top() returneaza primul element din coada(cel cu prioritatea maxima);
+empty() returneaza true atunci cand coada este vida
+size() returneaza numarul de elemente din coada
+
+priority_queue nu defineste operatori relationali si nici iteratori
+
+    ///         Max-Heap
+    priority_queue<int,vector<int>,greater<int> > q1;
+
+    ///         Min-Heap
+    priority_queue<int> q;

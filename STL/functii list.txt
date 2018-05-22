@@ -1,0 +1,52 @@
+clasa template list
+
+#include <list>
+
+Functii care combina elementele listelor
+
+Imbinarea listelor cu splice()
+
+L.splice(it,x);  //insereaza lista controlata de x,inaintea elementului indicat de it,
+                 //in lista controlata de obiectul L.De asemenea,inlatura toate elementele
+                  din x.Cele doua liste trebuie sa fie diferite
+
+L.splice(it,x,it1);   //inlatura elementul indicat de it1 din secventa controlata de x
+                     //si il insereaza inaintea elementului indicat de it in lista L.
+                     //Daca it==it1 sau it==++it1,nu se executa nimic
+
+L.splice(it,x,it1,it2);  //insereaza intervalul desemnat de [it1,it2) in lista controlata
+                      //de x,inaintea elementului indicat de it in secventa controlata de L.
+                      //Daca &x==this (adica L si X coincid),atunci intervalul [it1,it2) nu trebuie sa includa
+                     //elementul indicat de it
+
+
+L.merge(x);          //Cele doua functii membre merge imbina listele L si x prin inlaturarea
+L.merge(x,pred);     //tuturor elementelor din lista x si inserarea acestora in lista L.
+                     //Cele doua liste trebuie sa fie ordonate,iar ordonarea sa fie facuta dupa acelasi predicat.
+                     //Secventa care rezulta este de asemenea ordonata dupa acelasi predicat.    
+
+ex:L1.merge(L2,greater<int>()); ///Ordoneaza descrescator
+
+Functii care inlatura elemente din liste
+
+L.unique();   //inlatura din lista L toate elementele care "compara egal" cu elementul precedent.
+             //Altfel spus elimina toate elementele in afara de primul din fiecare grup consecutiv
+             //de elemente cu ordine echivalenta
+
+L.unique(pr);  //inlatura din lista L toate elementele in afara de primul,din fiecare grup consecutiv
+              //de elemente cu "ordine echivalenta"
+
+L.remove(x);  //inlatura din lista L toate elementele desemnate de iteratorul it, pentru care *it==x
+             //(Sterge din lista toate elementele de valoare x)
+L.remove_if(pr);  //inlatura din lista L toate elementele desemnate de iteratorul it,
+                 //pentru care pr(*it) este true
+
+Sortarea si inversarea listelor
+
+//Daca it1 si it2 sunt doi iteratori corespunzatori pozitiilor i si j in lista,atunci:
+L.sort();  //impune ordinea: !(*it2<*it1) pentru oricare i si j,cu i<j;
+L.sort(pr);  //impune ordinea:  !pr(*it2,*it1) pentru oricare pozitii i si j,cu i<j;
+L.reverse() //inverseaza ordinea in care elementele apar in secventa.
+            //Operatia este realizata intern,printr-o succesiune de operatii splice
+//Cele doua functii sort() nu invalideaza niciun iterator.Iteratorii raman valizi 
+//si continua sa indice aceleasi elemente 
