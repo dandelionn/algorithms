@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ifstream f("heap.txt");
+ifstream f("heap.in");
 int const NMAX=100;
 int v[NMAX],n;
 void creare_heap()

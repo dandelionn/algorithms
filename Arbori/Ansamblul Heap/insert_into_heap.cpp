@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ifstream f("heap.txt");
+ifstream f("heap.in");
 const int NMAX=100;
 int v[NMAX],n;
 
