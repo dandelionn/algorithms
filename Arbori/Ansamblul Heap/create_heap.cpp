@@ -51,7 +51,6 @@ std::vector<int> createHeap(std::vector<int> v)
             }
         }
     }
-
     return v;
 }
 
