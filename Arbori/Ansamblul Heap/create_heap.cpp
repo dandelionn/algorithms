@@ -1,35 +1,64 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <algorithm>
 
-using namespace std;
+std::vector<int> readFile(std::string filename);
+std::vector<int> createHeap(std::vector<int> v);
+void printHeapToConsole(std::vector<int> v);
 
-ifstream f("heap.in");
-int const NMAX=100;
-int v[NMAX],n;
-void creare_heap()
-{
-    int i,j,aux;f>>n;
-    if(n<=NMAX-1)
-       {
-           f>>v[1];
-           for(j=2;j<=n;j++)
-               {f>>v[j];i=j;
-               while(i>1)
-                  if(v[i]>=v[i/2])
-                      {
-                          aux=v[i];v[i]=v[i/2];v[i/2]=aux;
-                          i=i/2;
-                      }
-                   else
-                      i=1;}
-       }
-     else
-        cout<<"Nu se poate crea-arborele are mai multe noduri decat lungimea fizica a vectorului"<<'\n';
-}
 int main()
 {
-    creare_heap();
-    for(int i=1;i<=n;i++)
-        cout<<v[i]<<' ';
-    f.close();
+    auto heapData = readFile("heap.in");
+    auto heap = createHeap(heapData);
+    printHeapToConsole(heap);
+}
+
+std::vector<int> readFile(std::string filename)
+{
+    std::ifstream fin(filename);
+    std::vector<int> v;
+    size_t n;
+    int x;
+   
+    fin >> n;
+    v.push_back(0); // redundant value, the first position in
+                    // vector won't be used for simplicity
+    for (auto i=1; i<=n; ++i)
+    {
+        fin >> x;
+        v.push_back(x);
+    }
+
+    return v;
+}
+
+std::vector<int> createHeap(std::vector<int> v)
+{
+    for(auto j=2; j < v.size(); ++j)
+    {
+        auto i = j;
+        while( i > 1 )
+        {
+            if( v[i] >= v[i/2] )
+            {
+                std::swap(v[i], v[i/2]);
+                i = i/2;
+            }
+            else
+            {
+                i = 1;
+            }
+        }
+    }
+
+    return v;
+}
+
+void printHeapToConsole(std::vector<int> v)
+{
+    for(auto i=1; i < v.size(); i++)
+    {
+        std::cout << v[i] << ' ';
+    }
 }
