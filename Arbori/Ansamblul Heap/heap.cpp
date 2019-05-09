@@ -1,7 +1,7 @@
 #include "heap.h"
 #include <iostream>
 
-Heap::Heap(std::vector<int> values)
+Heap::Heap(const std::vector<int>& values)
 {
     v = values;
     createHeap();
@@ -49,7 +49,7 @@ auto Heap::getChild(int childIndex) ->  std::vector<int>::iterator
     return child;
 }
 
-auto Heap::selectChildWithBiggerValue(std::vector<int>::iterator parent) ->  std::vector<int>::iterator
+auto Heap::selectChildWithBiggerValue(const std::vector<int>::iterator& parent) ->  std::vector<int>::iterator
 {
     auto parentIndex = std::distance(v.begin(), parent) + 1;
     auto firstChild = getChild(parentIndex*2 - 1);

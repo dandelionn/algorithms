@@ -7,7 +7,7 @@
 class Heap
 {
     public:
-        Heap(std::vector<int> v);
+        Heap(const std::vector<int>& v);
         int top();
         int pop();
         bool empty();
@@ -18,11 +18,11 @@ class Heap
         void createHeap();
         void siftUp(std::vector<int>::iterator child);
         void siftDown();
-        auto selectChildWithBiggerValue(std::vector<int>::iterator parent) ->  std::vector<int>::iterator;
+        auto selectChildWithBiggerValue(const std::vector<int>::iterator& parent) ->  std::vector<int>::iterator;
         auto getChild(int childIndex) ->  std::vector<int>::iterator;
 };
 
-inline std::vector<int> HeapSort(std::vector<int> values)
+inline std::vector<int> HeapSort(const std::vector<int>& values)
 {
     Heap heap(values);
     std::vector<int> v;

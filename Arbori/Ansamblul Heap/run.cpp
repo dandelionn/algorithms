@@ -6,7 +6,7 @@
 #include "heap.h"
 
 std::vector<int> readFile(std::string filename);
-void printHeapToConsole(std::vector<int> v, std::string message);
+void printHeapToConsole(const std::vector<int>& v, std::string message);
 
 int main()
 {
@@ -42,7 +42,7 @@ std::vector<int> readFile(std::string filename)
     return v;
 }
 
-void printHeapToConsole(std::vector<int> v, std::string message)
+void printHeapToConsole(const std::vector<int>& v, std::string message)
 {
     std::cout << message <<'\n';
 
