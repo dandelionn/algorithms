@@ -12,7 +12,7 @@ std::pair<std::vector<int>, std::vector<int>> readFileForStaticBinaryTree(std::s
 
 template<class Container>
 void printToConsole(const Container& container, std::string message);
-
+void printMessage(std::string message);
 
 int main()
 {
@@ -23,13 +23,6 @@ int main()
     auto root = createDynamicBinaryTree(v);
     auto res_v = parseRSD(root.get());
     printToConsole(res_v, "RSD_Recursive");
-
-    printMessage("STATIC BINARY TREE");
-    auto pair = readFileForStaticBinaryTree("static_tree.in");
-    printToConsole(pair.first, "initial left vector");
-    printToConsole(pair.second, "initial right vector");
-
-    parseRSD()
 
     std::getchar();
 }
@@ -47,26 +40,6 @@ std::deque<int> readFile(std::string filename)
     }
 
     return v;
-}
-
-std::pair<std::vector<int>, std::vector<int>> readFileForStaticBinaryTree(std::string filename)
-{
-    std::ifstream fin(filename);
-    std::vector<int> left;
-    std::vector<int> right;
-    
-    auto n = 0;
-    fin>>n;
-    for(auto i=0; i<n; ++i)
-    {
-        fin >> left[i]; 
-    }
-    for(auto i=0; i<n; ++i)
-    {
-        fin >> right[i];
-    }
-
-    return std::make_pair(left, right);
 }
 
 template<class Container>
