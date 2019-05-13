@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <cstdio>
+
 using namespace std;
 
 ifstream f("arbore.txt");
@@ -29,4 +31,6 @@ int main()
 {
     creare(r1);
     rsd(r1);
+
+    std::getchar();
 }

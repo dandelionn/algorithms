@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-ifstream f("arbore1.txt");
+ifstream f("static_tree.txt");
 int st[20],dr[20],n;
 int rad()
 {
