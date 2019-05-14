@@ -1,20 +1,56 @@
 #include "binary_tree_parse.h"
 #include <iostream>
 
-void parse(Node* node, std::vector<int>& out)
+// Left, Root, Right
+void parseInorder(Node* node, std::vector<int>& out)
+{
+    if(node != nullptr)
+    {
+        parseInorder(node->left.get(), out);
+        out.push_back(node->value);
+        parseInorder(node->right.get(), out);
+    }
+}
+
+// Root, Left, Right
+void parsePreorder(Node* node, std::vector<int>& out)
 {
     if(node != nullptr)
     {
         out.push_back(node->value);
-        parse(node->left.get(), out);
-        parse(node->right.get(), out);
+        parsePreorder(node->left.get(), out);
+        parsePreorder(node->right.get(), out);
     }
 }
 
-std::vector<int> parseRSD(Node* node)
+// Left, Right, Root
+void parsePostorder(Node* node, std::vector<int>& out)
+{
+    if(node != nullptr)
+    {
+        parsePostorder(node->left.get(), out);
+        parsePostorder(node->right.get(), out);
+        out.push_back(node->value);
+    }
+}
+
+std::vector<int> parse(Node* node, ParseType parseType)
 {
     std::vector<int> out;
-    parse(node, out);
+
+    switch (parseType){
+        case ParseType::Inorder:
+            parseInorder(node, out);
+            break;
+
+        case ParseType::Preorder:
+            parsePreorder(node, out);
+            break;
+
+        case ParseType::Postorder:
+            parsePostorder(node, out);
+            break;
+    }
 
     return out;
 }

@@ -21,8 +21,15 @@ int main()
     printToConsole(v, "initial vector");
 
     auto root = createDynamicBinaryTree(v);
-    auto res_v = parseRSD(root.get());
-    printToConsole(res_v, "RSD_Recursive");
+
+    auto result = parse(root.get(), ParseType::Inorder);
+    printToConsole(result, "Inorder (Left, Root, Right)");
+
+    result = parse(root.get(), ParseType::Preorder);
+    printToConsole(result, "Preorder (Root, Left, Right)");
+
+    result = parse(root.get(), ParseType::Postorder);
+    printToConsole(result, "Postorder (Left, Right, Root)");
 
     std::getchar();
 }

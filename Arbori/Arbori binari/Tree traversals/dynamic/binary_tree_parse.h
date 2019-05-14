@@ -6,5 +6,7 @@
 #include <deque>
 #include "custom_type.h"
 
-std::vector<int> parseRSD(Node* node);
+enum ParseType{Inorder, Preorder, Postorder};
+
+std::vector<int> parse(Node* node, ParseType parseType);
 
