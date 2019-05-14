@@ -17,9 +17,14 @@ int main()
     auto v = readFile("static_tree.in");
     printToConsole(v, "Left+right children vector");
 
-    auto result = parseRSD(v);
+    auto result = parse(v, ParseType::Inorder);
+    printToConsole(result, "Inorder (Left, Root, Right)");
 
-    printToConsole(result, "RSD_recursive");
+    result = parse(v, ParseType::Preorder);
+    printToConsole(result, "Preorder (Root, Left, Right)");
+
+    result = parse(v, ParseType::Postorder);
+    printToConsole(result, "Postorder (Left, Right, Root)");
 
     std::getchar();
 }
