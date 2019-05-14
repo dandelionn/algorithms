@@ -2,12 +2,10 @@
 #include <fstream>
 #include <cstdio>
 #include <vector>
-#include <memory>
-#include <deque>
 #include "binary_tree_parse.h"
-#include "dynamic_binary_tree.h"
 
-std::pair<std::vector<int>, std::vector<int>> readFile(std::string filename);
+std::vector<int> readFile(std::string filename);
+void printMessage(std::string message);
 
 template<class Container>
 void printToConsole(const Container& container, std::string message);
@@ -15,33 +13,30 @@ void printToConsole(const Container& container, std::string message);
 int main()
 {
     printMessage("STATIC BINARY TREE");
-    auto pair = readFile("static_tree.in");
-    printToConsole(pair.first, "initial left vector");
-    printToConsole(pair.second, "initial right vector");
 
-    parseRSD();
+    auto v = readFile("static_tree.in");
+    printToConsole(v, "Left+right children vector");
+
+    auto result = parseRSD(v);
+
+    printToConsole(result, "RSD_recursive");
 
     std::getchar();
 }
 
-std::pair<std::vector<int>, std::vector<int>> readFile(std::string filename)
+std::vector<int> readFile(std::string filename) 
 {
     std::ifstream fin(filename);
-    std::vector<int> left;
-    std::vector<int> right;
-    
-    auto n = 0;
-    fin>>n;
-    for(auto i=0; i<n; ++i)
+    std::vector<int> lines;
+
+    while(!fin.eof())
     {
-        fin >> left[i]; 
-    }
-    for(auto i=0; i<n; ++i)
-    {
-        fin >> right[i];
+        auto x = 0;
+        fin>>x;
+        lines.push_back(x);
     }
 
-    return std::make_pair(left, right);
+    return lines;
 }
 
 template<class Container>
