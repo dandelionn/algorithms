@@ -11,9 +11,10 @@ ifstream f("static_tree.in");
 
 std::vector<int> readFile(const std::string filename);
 int findRoot(const std::vector<int>& lines);
-int computeTreeHeight(int i, const std::vector<int>& left, std::vector<int>& right);
+int computeTreeHeight(int node, const std::vector<int>& left, std::vector<int>& right);
 void printNodeState(const int node, const std::vector<int>& childs);
 void printTreeState(const std::vector<int>& left, std::vector<int>& right);
+int countLeafs(int node, const std::vector<int>& left, std::vector<int>& right);
 
 int main()
 {
@@ -25,9 +26,10 @@ int main()
    std::vector<int> left(lines.begin(), lines.begin() + half_size);
    std::vector<int> right(lines.begin() + half_size, lines.end());
    
+   cout<<"leafs count: "<<countLeafs(root, left, right) << '\n';
    cout<<"tree height: "<<computeTreeHeight(root, left, right) <<'\n';
    printTreeState(left, right);
-
+   
    std::getchar();
 }
 
@@ -98,4 +100,16 @@ int computeTreeHeight(int node, const std::vector<int>& left, std::vector<int>& 
    int rightTreeHeight = computeTreeHeight(right[node], left, right);
 
    return 1 + std::max(leftTreeHeight, rightTreeHeight);
+}
+
+int countLeafs(int node, const std::vector<int>& left, std::vector<int>& right)
+{
+   auto isLeaf =  left[node] == right[node]; 
+   if(isLeaf) return 1;
+
+   auto noChild = -1;
+   if( node == noChild ) return 0;
+
+   return countLeafs(left[node], left, right) +
+          countLeafs(right[node], left, right);
 }
