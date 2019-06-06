@@ -19,7 +19,6 @@ std::vector<int> BreadthFirst(const std::vector<std::vector<int>>& tree, int roo
         {
             q.push(x);
         }
-
     }
 
     return out;
