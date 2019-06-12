@@ -6,11 +6,26 @@ message("Generating ${libname} library")
 project(${libname})
 
 set(header_files
-	include/algo.h
+	include/binary_search_tree.h
+	include/custom_type.h
+	include/dynamic_binary_tree_parse.h
+	include/dynamic_tree.h
+	include/heap.h
+	include/left_right_child_representation.h
+	include/parent_childtype_representation.h
+	include/static_binary_tree_parse.h
+	include/tree_traversal.h
 )
 
 set(source_files
-	src/algo.cpp
+	src/binary_search_tree.cpp
+	src/dynamic_binary_tree_parse.cpp
+	src/dynamic_tree.cpp
+	src/heap.cpp
+	src/left_right_child_representation.cpp
+	src/parent_childtype_representation.cpp
+	src/static_binary_tree_parse.cpp
+	src/tree_traversal.cpp
 )
 
 # Generate static library
