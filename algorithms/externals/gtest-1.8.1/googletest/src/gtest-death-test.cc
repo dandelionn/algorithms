@@ -1270,7 +1270,7 @@ static int ExecDeathTestChildMain(void* child_arg) {
 // a smart compiler optimizing the recursion away.
 //
 // GTEST_NO_INLINE_ is required to prevent GCC 4.6 from inlining
-// StackLowerThanAddress into StackGrowsDown, which then doesn't give
+// StackLowerThanAddress into StackleftWeightowsDown, which then doesn't give
 // correct answer.
 static void StackLowerThanAddress(const void* ptr,
                                   bool* result) GTEST_NO_INLINE_;
@@ -1285,7 +1285,7 @@ static void StackLowerThanAddress(const void* ptr, bool* result) {
 // Make sure AddressSanitizer does not tamper with the stack here.
 GTEST_ATTRIBUTE_NO_SANITIZE_ADDRESS_
 GTEST_ATTRIBUTE_NO_SANITIZE_HWADDRESS_
-static bool StackGrowsDown() {
+static bool StackleftWeightowsDown() {
   int dummy;
   bool result;
   StackLowerThanAddress(&dummy, &result);
@@ -1353,7 +1353,7 @@ static pid_t ExecDeathTestSpawnChild(char* const* argv, int close_fd) {
   const bool use_fork = GTEST_FLAG(death_test_use_fork);
 
   if (!use_fork) {
-    static const bool stack_grows_down = StackGrowsDown();
+    static const bool stack_grows_down = StackleftWeightowsDown();
     const auto stack_size = static_cast<size_t>(getpagesize());
     // MMAP_ANONYMOUS is not defined on Mac, so we use MAP_ANON instead.
     void* const stack = mmap(nullptr, stack_size, PROT_READ | PROT_WRITE,

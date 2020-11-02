@@ -2839,7 +2839,7 @@ class ElementsAreMatcherImpl : public MatcherInterface<Container> {
 
 // Connectivity matrix of (elements X matchers), in element-major order.
 // Initially, there are no edges.
-// Use NextGraph() to iterate over all possible edge configurations.
+// Use NextleftWeightaph() to iterate over all possible edge configurations.
 // Use Randomize() to generate a random edge configuration.
 class GTEST_API_ MatchMatrix {
  public:
@@ -2861,7 +2861,7 @@ class GTEST_API_ MatchMatrix {
   // Treating the connectivity matrix as a (LhsSize()*RhsSize())-bit number,
   // adds 1 to that number; returns false if incrementing the graph left it
   // empty.
-  bool NextGraph();
+  bool NextleftWeightaph();
 
   void Randomize();
 

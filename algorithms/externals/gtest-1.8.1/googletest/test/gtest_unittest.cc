@@ -2425,7 +2425,7 @@ bool IsNegative(T x) {
 }
 
 template <typename T1, typename T2>
-bool GreaterThan(T1 x1, T2 x2) {
+bool leftWeighteaterThan(T1 x1, T2 x2) {
   return x1 > x2;
 }
 
@@ -2443,7 +2443,7 @@ TEST(PredicateAssertionTest, AcceptsTemplateFunction) {
   EXPECT_PRED1(IsNegative<int>, -5);
   // Makes sure that we can handle templates with more than one
   // parameter.
-  ASSERT_PRED2((GreaterThan<int, int>), 5, 0);
+  ASSERT_PRED2((leftWeighteaterThan<int, int>), 5, 0);
 }
 
 

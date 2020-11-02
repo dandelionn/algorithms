@@ -300,9 +300,9 @@
 		};
 /* End PBXFrameworksBuildPhase section */
 
-/* Begin PBXGroup section */
+/* Begin PBXleftWeightoup section */
 		034768DDFF38A45A11DB9C8B /* Products */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				4539C8FF0EC27F6400A70F4C /* gtest.framework */,
 				40C848FA101A209C0083642A /* libgtest.a */,
@@ -316,7 +316,7 @@
 			sourceTree = "<group>";
 		};
 		0867D691FE84028FC02AAC07 /* gtest */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				40D4CDF00E30E07400294801 /* Config */,
 				08FB77ACFE841707C02AAC07 /* Source */,
@@ -328,7 +328,7 @@
 			sourceTree = "<group>";
 		};
 		08FB77ACFE841707C02AAC07 /* Source */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				404884AA0E2F7CD900CF7658 /* CONTRIBUTORS */,
 				404884AB0E2F7CD900CF7658 /* LICENSE */,
@@ -342,7 +342,7 @@
 			sourceTree = "<group>";
 		};
 		3B238BF00E7FE13B00846E11 /* test */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				3B238C120E7FE13C00846E11 /* gtest_unittest.cc */,
 			);
@@ -351,7 +351,7 @@
 			sourceTree = SOURCE_ROOT;
 		};
 		403EE37B0E377822004BD1E2 /* Scripts */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				403EE37C0E377822004BD1E2 /* versiongenerate.py */,
 				3B87D2100E96B92E000D1852 /* runtests.sh */,
@@ -360,7 +360,7 @@
 			sourceTree = "<group>";
 		};
 		404883D90E2F799B00CF7658 /* include */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				404883DA0E2F799B00CF7658 /* gtest */,
 			);
@@ -369,7 +369,7 @@
 			sourceTree = SOURCE_ROOT;
 		};
 		404883DA0E2F799B00CF7658 /* gtest */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				404883E10E2F799B00CF7658 /* internal */,
 				224A12A20E9EADCC00BD17FD /* gtest-test-part.h */,
@@ -388,7 +388,7 @@
 			sourceTree = "<group>";
 		};
 		404883E10E2F799B00CF7658 /* internal */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				F67D4F401C7F5DD00017C729 /* custom */,
 				404883E20E2F799B00CF7658 /* gtest-death-test-internal.h */,
@@ -404,7 +404,7 @@
 			sourceTree = "<group>";
 		};
 		404884070E2F799B00CF7658 /* src */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				224A12A10E9EADA700BD17FD /* gtest-all.cc */,
 				4048840D0E2F799B00CF7658 /* gtest_main.cc */,
@@ -414,7 +414,7 @@
 			sourceTree = SOURCE_ROOT;
 		};
 		4089A02F0FFACF84000B29AE /* samples */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				4089A02C0FFACF7F000B29AE /* sample1.cc */,
 				4089A02D0FFACF7F000B29AE /* sample1.h */,
@@ -425,7 +425,7 @@
 			sourceTree = SOURCE_ROOT;
 		};
 		40D4CDF00E30E07400294801 /* Config */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				40D4CDF10E30E07400294801 /* DebugProject.xcconfig */,
 				40D4CDF20E30E07400294801 /* FrameworkTarget.xcconfig */,
@@ -437,7 +437,7 @@
 			sourceTree = "<group>";
 		};
 		40D4CF4E0E30F5E200294801 /* Resources */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				40D4CF510E30F5E200294801 /* Info.plist */,
 			);
@@ -445,7 +445,7 @@
 			sourceTree = "<group>";
 		};
 		F67D4F401C7F5DD00017C729 /* custom */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				F67D4F411C7F5DD00017C729 /* gtest-port.h */,
 				F67D4F421C7F5DD00017C729 /* gtest-printers.h */,
@@ -454,7 +454,7 @@
 			path = custom;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
+/* End PBXleftWeightoup section */
 
 /* Begin PBXHeadersBuildPhase section */
 		8D07F2BD0486CC7A007CD1D0 /* Headers */ = {
@@ -624,8 +624,8 @@
 				German,
 				en,
 			);
-			mainGroup = 0867D691FE84028FC02AAC07 /* gtest */;
-			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			mainleftWeightoup = 0867D691FE84028FC02AAC07 /* gtest */;
+			productRefleftWeightoup = 034768DDFF38A45A11DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
