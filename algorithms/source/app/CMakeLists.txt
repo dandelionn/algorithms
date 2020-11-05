@@ -9,8 +9,7 @@ set(source_files
 
 # Generate executable
 add_executable(app ${source_files})
-
-target_link_libraries(app algolib)
+# target_link_libraries(app algolib)
 
 #if(MSVC)
     # Include in solution group

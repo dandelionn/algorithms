@@ -3,8 +3,16 @@ project(greedy_test)
 
 set(
     source_files
+	src/maximum_subset_sum_test.cpp
+	src/minimal_waiting_time_for_patients_test.cpp
+	src/mountain_trail_test.cpp
+	src/optimal_number_of_stations_between_cities_test.cpp
+	src/payment_with_minimal_value_of_bancnotes_test.cpp
+	src/activities_scheduling_test.cpp
+	src/the_most_valuable_charge_test.cpp
+	src/tourists_houses_scheduling_test.cpp
+	src/value_of_polygon_in_given_x_test.cpp
     src/main.cpp
-    src/test.cpp
 )
 
 link_directories(${LIBRARY_OUTPUT_PATH})
