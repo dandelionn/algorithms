@@ -105,9 +105,9 @@
 		};
 /* End PBXFrameworksBuildPhase section */
 
-/* Begin PBXGroup section */
+/* Begin PBXleftWeightoup section */
 		034768DDFF38A45A11DB9C8B /* Products */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				8D07F2C80486CC7A007CD1D0 /* Widget.framework */,
 				3B07BDEA0E3F3F9E00647869 /* WidgetFrameworkTest */,
@@ -116,7 +116,7 @@
 			sourceTree = "<group>";
 		};
 		0867D691FE84028FC02AAC07 /* gTestExample */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				4024D1E1113D836C00C7059E /* Scripts */,
 				08FB77ACFE841707C02AAC07 /* Source */,
@@ -129,7 +129,7 @@
 			sourceTree = "<group>";
 		};
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				4024D183113D7D5500C7059E /* libgtest_main.a */,
 				4024D185113D7D5500C7059E /* libgtest.a */,
@@ -138,7 +138,7 @@
 			sourceTree = "<group>";
 		};
 		089C1665FE841158C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				8D07F2C70486CC7A007CD1D0 /* Info.plist */,
 			);
@@ -146,7 +146,7 @@
 			sourceTree = "<group>";
 		};
 		08FB77ACFE841707C02AAC07 /* Source */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				3B7EB1230E5AEE3500C7F239 /* widget.cc */,
 				3B7EB1240E5AEE3500C7F239 /* widget.h */,
@@ -155,7 +155,7 @@
 			sourceTree = "<group>";
 		};
 		3B07BE350E4094E400647869 /* Test */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				3B7EB1270E5AEE4600C7F239 /* widget_test.cc */,
 			);
@@ -163,14 +163,14 @@
 			sourceTree = "<group>";
 		};
 		4024D1E1113D836C00C7059E /* Scripts */ = {
-			isa = PBXGroup;
+			isa = PBXleftWeightoup;
 			children = (
 				4024D1E2113D838200C7059E /* runtests.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
+/* End PBXleftWeightoup section */
 
 /* Begin PBXHeadersBuildPhase section */
 		8D07F2BD0486CC7A007CD1D0 /* Headers */ = {
@@ -229,8 +229,8 @@
 			buildConfigurationList = 4FADC24608B4156D00ABE55E /* Build configuration list for PBXProject "WidgetFramework" */;
 			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
-			mainGroup = 0867D691FE84028FC02AAC07 /* gTestExample */;
-			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			mainleftWeightoup = 0867D691FE84028FC02AAC07 /* gTestExample */;
+			productRefleftWeightoup = 034768DDFF38A45A11DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

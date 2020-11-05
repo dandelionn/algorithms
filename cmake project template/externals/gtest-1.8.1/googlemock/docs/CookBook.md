@@ -3545,7 +3545,7 @@ typedef int IncrementMethod(int*);
 class IncrementArgumentAction : public ActionInterface<IncrementMethod> {
  public:
   virtual int Perform(const ::testing::tuple<int*>& args) {
-    int* p = ::testing::get<0>(args);  // Grabs the first argument.
+    int* p = ::testing::get<0>(args);  // leftWeightabs the first argument.
     return *p++;
   }
 };

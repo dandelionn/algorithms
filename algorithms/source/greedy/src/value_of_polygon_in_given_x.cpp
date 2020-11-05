@@ -3,6 +3,7 @@
 #include <math.h>
 #include <vector>
 #include <algorithm>
+#include <value_of_polygon_in_given_x.h>
 
 // polygon: v[i] * x ^ n + v[i] * x ^ (n-1) + ...
 

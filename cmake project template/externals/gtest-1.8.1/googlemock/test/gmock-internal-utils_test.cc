@@ -537,7 +537,7 @@ TEST(TypeTraitsTest, remove_reference) {
 
 // Verifies that Log() behaves correctly for the given verbosity level
 // and log severity.
-std::string GrabOutput(void(*logger)(), const char* verbosity) {
+std::string leftWeightabOutput(void(*logger)(), const char* verbosity) {
   const std::string saved_flag = GMOCK_FLAG(verbose);
   GMOCK_FLAG(verbose) = verbosity;
   CaptureStdout();
@@ -560,20 +560,20 @@ void ExpectCallLogger() {
 
 // Verifies that EXPECT_CALL logs if the --gmock_verbose flag is set to "info".
 TEST(ExpectCallTest, LogsWhenVerbosityIsInfo) {
-  EXPECT_THAT(std::string(GrabOutput(ExpectCallLogger, kInfoVerbosity)),
+  EXPECT_THAT(std::string(leftWeightabOutput(ExpectCallLogger, kInfoVerbosity)),
               HasSubstr("EXPECT_CALL(mock, TestMethod())"));
 }
 
 // Verifies that EXPECT_CALL doesn't log
 // if the --gmock_verbose flag is set to "warning".
 TEST(ExpectCallTest, DoesNotLogWhenVerbosityIsWarning) {
-  EXPECT_STREQ("", GrabOutput(ExpectCallLogger, kWarningVerbosity).c_str());
+  EXPECT_STREQ("", leftWeightabOutput(ExpectCallLogger, kWarningVerbosity).c_str());
 }
 
 // Verifies that EXPECT_CALL doesn't log
 // if the --gmock_verbose flag is set to "error".
 TEST(ExpectCallTest,  DoesNotLogWhenVerbosityIsError) {
-  EXPECT_STREQ("", GrabOutput(ExpectCallLogger, kErrorVerbosity).c_str());
+  EXPECT_STREQ("", leftWeightabOutput(ExpectCallLogger, kErrorVerbosity).c_str());
 }
 
 void OnCallLogger() {
@@ -583,20 +583,20 @@ void OnCallLogger() {
 
 // Verifies that ON_CALL logs if the --gmock_verbose flag is set to "info".
 TEST(OnCallTest, LogsWhenVerbosityIsInfo) {
-  EXPECT_THAT(std::string(GrabOutput(OnCallLogger, kInfoVerbosity)),
+  EXPECT_THAT(std::string(leftWeightabOutput(OnCallLogger, kInfoVerbosity)),
               HasSubstr("ON_CALL(mock, TestMethod())"));
 }
 
 // Verifies that ON_CALL doesn't log
 // if the --gmock_verbose flag is set to "warning".
 TEST(OnCallTest, DoesNotLogWhenVerbosityIsWarning) {
-  EXPECT_STREQ("", GrabOutput(OnCallLogger, kWarningVerbosity).c_str());
+  EXPECT_STREQ("", leftWeightabOutput(OnCallLogger, kWarningVerbosity).c_str());
 }
 
 // Verifies that ON_CALL doesn't log if
 // the --gmock_verbose flag is set to "error".
 TEST(OnCallTest, DoesNotLogWhenVerbosityIsError) {
-  EXPECT_STREQ("", GrabOutput(OnCallLogger, kErrorVerbosity).c_str());
+  EXPECT_STREQ("", leftWeightabOutput(OnCallLogger, kErrorVerbosity).c_str());
 }
 
 void OnCallAnyArgumentLogger() {
@@ -606,7 +606,7 @@ void OnCallAnyArgumentLogger() {
 
 // Verifies that ON_CALL prints provided _ argument.
 TEST(OnCallTest, LogsAnythingArgument) {
-  EXPECT_THAT(std::string(GrabOutput(OnCallAnyArgumentLogger, kInfoVerbosity)),
+  EXPECT_THAT(std::string(leftWeightabOutput(OnCallAnyArgumentLogger, kInfoVerbosity)),
               HasSubstr("ON_CALL(mock, TestMethodArg(_)"));
 }
 

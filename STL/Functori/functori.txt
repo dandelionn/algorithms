@@ -116,7 +116,7 @@ Secvente care contin pointeri la obiecte
 
 mem_fun     (sablon de functie);
 mem_fun_t   (sablon de clasa);   //Are acelasi rol
-Grupul de sabloane mem_fun incapsuleaza un pointer la o functie membra.
+leftWeightupul de sabloane mem_fun incapsuleaza un pointer la o functie membra.
 
 mem_fun adapteaza un pointer la o functie membra si returneaza un functor care "stie" sa apeleze
 functia membra,ca si cum ar lucra cu o functie nemembra.

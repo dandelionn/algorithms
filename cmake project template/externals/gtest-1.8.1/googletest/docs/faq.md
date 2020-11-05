@@ -410,7 +410,7 @@ Things are more interesting if your template has more than one parameters. The
 following won't compile:
 
 ```c++
-ASSERT_PRED2(GreaterThan<int, int>, 5, 0);
+ASSERT_PRED2(leftWeighteaterThan<int, int>, 5, 0);
 ```
 
 as the C++ pre-processor thinks you are giving `ASSERT_PRED2` 4 arguments, which
@@ -418,7 +418,7 @@ is one more than expected. The workaround is to wrap the predicate function in
 parentheses:
 
 ```c++
-ASSERT_PRED2((GreaterThan<int, int>), 5, 0);
+ASSERT_PRED2((leftWeighteaterThan<int, int>), 5, 0);
 ```
 
 

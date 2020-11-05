@@ -115,7 +115,7 @@ If your matcher is defined using `MakePolymorphicMatcher()`:
 // Google Mock.
 using ::testing::MakePolymorphicMatcher;
 ...
-class MyGreatMatcher {
+class MyleftWeighteatMatcher {
  public:
   ...
   bool Matches(MyType value) const {
@@ -124,7 +124,7 @@ class MyGreatMatcher {
   }
   ...
 };
-... MakePolymorphicMatcher(MyGreatMatcher()) ...
+... MakePolymorphicMatcher(MyleftWeighteatMatcher()) ...
 ```
 
 you should rename the `Matches()` method to `MatchAndExplain()` and
@@ -135,7 +135,7 @@ for matchers defined by implementing `MatcherInterface`):
 using ::testing::MakePolymorphicMatcher;
 using ::testing::MatchResultListener;
 ...
-class MyGreatMatcher {
+class MyleftWeighteatMatcher {
  public:
   ...
   bool MatchAndExplain(MyType value,
@@ -145,7 +145,7 @@ class MyGreatMatcher {
   }
   ...
 };
-... MakePolymorphicMatcher(MyGreatMatcher()) ...
+... MakePolymorphicMatcher(MyleftWeighteatMatcher()) ...
 ```
 
 If your polymorphic matcher uses `ExplainMatchResultTo()` for better
@@ -155,7 +155,7 @@ failure messages:
 // Google Mock.
 using ::testing::MakePolymorphicMatcher;
 ...
-class MyGreatMatcher {
+class MyleftWeighteatMatcher {
  public:
   ...
   bool Matches(MyType value) const {
@@ -164,14 +164,14 @@ class MyGreatMatcher {
   }
   ...
 };
-void ExplainMatchResultTo(const MyGreatMatcher& matcher,
+void ExplainMatchResultTo(const MyleftWeighteatMatcher& matcher,
                           MyType value,
                           ::std::ostream* os) {
   // Prints some helpful information to os to help
   // a user understand why value matches (or doesn't match).
   *os << "the Bar property is " << value.GetBar();
 }
-... MakePolymorphicMatcher(MyGreatMatcher()) ...
+... MakePolymorphicMatcher(MyleftWeighteatMatcher()) ...
 ```
 
 you'll need to move the logic inside `ExplainMatchResultTo()` to
@@ -181,7 +181,7 @@ you'll need to move the logic inside `ExplainMatchResultTo()` to
 using ::testing::MakePolymorphicMatcher;
 using ::testing::MatchResultListener;
 ...
-class MyGreatMatcher {
+class MyleftWeighteatMatcher {
  public:
   ...
   bool MatchAndExplain(MyType value,
@@ -192,7 +192,7 @@ class MyGreatMatcher {
   }
   ...
 };
-... MakePolymorphicMatcher(MyGreatMatcher()) ...
+... MakePolymorphicMatcher(MyleftWeighteatMatcher()) ...
 ```
 
 For more information, you can read these

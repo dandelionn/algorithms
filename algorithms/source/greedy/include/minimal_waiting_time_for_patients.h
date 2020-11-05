@@ -1,3 +1,4 @@
+#pragma once
 
 struct patient {
 	int time, id;

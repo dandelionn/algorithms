@@ -4,7 +4,11 @@ project(dynamic_programming_test)
 set(
     source_files
     src/main.cpp
-    src/test.cpp
+    src/knapsack_test.cpp
+    src/maximum_sum_in_triangle_test.cpp
+    src/longest_increasing_subsequence_test.cpp  
+    src/pipe_problem_test.cpp
+    src/s_as_sum_of_n_given_numbers_test.cpp
 )
 
 link_directories(${LIBRARY_OUTPUT_PATH})

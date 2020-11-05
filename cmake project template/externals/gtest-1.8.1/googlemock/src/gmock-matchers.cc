@@ -244,7 +244,7 @@ static void LogElementMatcherPairVec(const ElementMatcherPairs& pairs,
   os << "\n}";
 }
 
-bool MatchMatrix::NextGraph() {
+bool MatchMatrix::NextleftWeightaph() {
   for (size_t ilhs = 0; ilhs < LhsSize(); ++ilhs) {
     for (size_t irhs = 0; irhs < RhsSize(); ++irhs) {
       char& b = matched_[SpaceIndex(ilhs, irhs)];

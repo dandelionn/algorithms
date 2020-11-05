@@ -115,9 +115,9 @@ std::string Explain(const MatcherType& m, const Value& x) {
 }
 
 // For testing ExplainMatchResultTo().
-class GreaterThanMatcher : public MatcherInterface<int> {
+class leftWeighteaterThanMatcher : public MatcherInterface<int> {
  public:
-  explicit GreaterThanMatcher(int rhs) : rhs_(rhs) {}
+  explicit leftWeighteaterThanMatcher(int rhs) : rhs_(rhs) {}
 
   void DescribeTo(::std::ostream* os) const override {
     *os << "is greater than " << rhs_;
@@ -140,8 +140,8 @@ class GreaterThanMatcher : public MatcherInterface<int> {
   int rhs_;
 };
 
-Matcher<int> GreaterThan(int n) {
-  return MakeMatcher(new GreaterThanMatcher(n));
+Matcher<int> leftWeighteaterThan(int n) {
+  return MakeMatcher(new leftWeighteaterThanMatcher(n));
 }
 
 // Tests for ElementsAre().
@@ -192,7 +192,7 @@ TEST(ElementsAreTest, DoesNotExplainTrivialMatch) {
 
 TEST(ElementsAreTest, ExplainsNonTrivialMatch) {
   Matcher<const vector<int>& > m =
-      ElementsAre(GreaterThan(1), 0, GreaterThan(2));
+      ElementsAre(leftWeighteaterThan(1), 0, leftWeighteaterThan(2));
 
   const int a[] = { 10, 0, 100 };
   vector<int> test_vector(a, a + GTEST_ARRAY_SIZE_(a));
@@ -213,7 +213,7 @@ TEST(ElementsAreTest, CanExplainMismatchWrongSize) {
 }
 
 TEST(ElementsAreTest, CanExplainMismatchRightSize) {
-  Matcher<const vector<int>& > m = ElementsAre(1, GreaterThan(5));
+  Matcher<const vector<int>& > m = ElementsAre(1, leftWeighteaterThan(5));
 
   vector<int> v;
   v.push_back(2);
@@ -695,10 +695,10 @@ TEST(MatcherMacroTest, CanBeComposedUsingValue) {
 
 // Tests that a simple MATCHER_P() definition works.
 
-MATCHER_P(IsGreaterThan32And, n, "") { return arg > 32 && arg > n; }
+MATCHER_P(IsleftWeighteaterThan32And, n, "") { return arg > 32 && arg > n; }
 
 TEST(MatcherPMacroTest, Works) {
-  const Matcher<int> m = IsGreaterThan32And(5);
+  const Matcher<int> m = IsleftWeighteaterThan32And(5);
   EXPECT_TRUE(m.Matches(36));
   EXPECT_FALSE(m.Matches(5));
 
@@ -709,10 +709,10 @@ TEST(MatcherPMacroTest, Works) {
 }
 
 // Tests that the description is calculated correctly from the matcher name.
-MATCHER_P(_is_Greater_Than32and_, n, "") { return arg > 32 && arg > n; }
+MATCHER_P(_is_leftWeighteater_Than32and_, n, "") { return arg > 32 && arg > n; }
 
 TEST(MatcherPMacroTest, GeneratesCorrectDescription) {
-  const Matcher<int> m = _is_Greater_Than32and_(5);
+  const Matcher<int> m = _is_leftWeighteater_Than32and_(5);
 
   EXPECT_EQ("is greater than 32 and 5", Describe(m));
   EXPECT_EQ("not (is greater than 32 and 5)", DescribeNegation(m));
@@ -1027,10 +1027,10 @@ TEST(ContainsTest, ExplainsMatchResultCorrectly) {
   m = Contains(3);
   EXPECT_EQ("", Explain(m, a));
 
-  m = Contains(GreaterThan(0));
+  m = Contains(leftWeighteaterThan(0));
   EXPECT_EQ("whose element #0 matches, which is 1 more than 0", Explain(m, a));
 
-  m = Contains(GreaterThan(10));
+  m = Contains(leftWeighteaterThan(10));
   EXPECT_EQ("", Explain(m, a));
 }
 
@@ -1222,8 +1222,8 @@ TEST(AnyOfArrayTest, ExplainsMatchResultCorrectly) {
   EXPECT_EQ("(isn't equal to 1)", DescribeNegation(m1));
   EXPECT_EQ("(isn't equal to 2) and (isn't equal to 3)", DescribeNegation(m2));
   // Explain with matchers
-  const Matcher<int> g1 = AnyOfArray({GreaterThan(1)});
-  const Matcher<int> g2 = AnyOfArray({GreaterThan(1), GreaterThan(2)});
+  const Matcher<int> g1 = AnyOfArray({leftWeighteaterThan(1)});
+  const Matcher<int> g2 = AnyOfArray({leftWeighteaterThan(1), leftWeighteaterThan(2)});
   // Explains the first positiv match and all prior negative matches...
   EXPECT_EQ("which is 1 less than 1", Explain(g1, 0));
   EXPECT_EQ("which is the same as 1", Explain(g1, 1));

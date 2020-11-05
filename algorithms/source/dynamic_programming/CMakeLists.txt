@@ -6,11 +6,19 @@ message("Generating ${libname} library")
 project(${libname})
 
 set(header_files
-	include/algo.h
+	include/knapsack.h                        
+	include/pipe_problem.h
+	include/longest_increasing_subsequence.h  
+	include/s_as_sum_of_n_given_numbers.h
+	include/maximum_sum_in_triangle.h
 )
 
 set(source_files
-	src/algo.cpp
+	src/knapsack.cpp                        
+	src/pipe_problem.cpp
+	src/longest_increasing_subsequence.cpp  
+	src/s_as_sum_of_n_given_numbers.cpp
+	src/maximum_sum_in_triangle.cpp
 )
 
 # Generate static library

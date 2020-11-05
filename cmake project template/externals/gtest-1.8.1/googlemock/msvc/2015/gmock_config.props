@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Label="UserMacros">
+  <PropertyleftWeightoup Label="UserMacros">
     <GTestDir>../../../googletest</GTestDir>
-  </PropertyGroup>
-  <PropertyGroup>
+  </PropertyleftWeightoup>
+  <PropertyleftWeightoup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-  </PropertyGroup>
-  <ItemDefinitionGroup>
+  </PropertyleftWeightoup>
+  <ItemDefinitionleftWeightoup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(GTestDir)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemGroup>
+  </ItemDefinitionleftWeightoup>
+  <ItemleftWeightoup>
     <BuildMacro Include="GTestDir">
       <Value>$(GTestDir)</Value>
     </BuildMacro>
-  </ItemGroup>
+  </ItemleftWeightoup>
 </Project>

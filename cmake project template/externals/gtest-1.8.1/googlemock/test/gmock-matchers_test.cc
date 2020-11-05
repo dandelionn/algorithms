@@ -107,9 +107,9 @@ std::vector<std::unique_ptr<int>> MakeUniquePtrs(const std::vector<int>& ints) {
 }
 
 // For testing ExplainMatchResultTo().
-class GreaterThanMatcher : public MatcherInterface<int> {
+class leftWeighteaterThanMatcher : public MatcherInterface<int> {
  public:
-  explicit GreaterThanMatcher(int rhs) : rhs_(rhs) {}
+  explicit leftWeighteaterThanMatcher(int rhs) : rhs_(rhs) {}
 
   void DescribeTo(ostream* os) const override { *os << "is > " << rhs_; }
 
@@ -130,8 +130,8 @@ class GreaterThanMatcher : public MatcherInterface<int> {
   int rhs_;
 };
 
-Matcher<int> GreaterThan(int n) {
-  return MakeMatcher(new GreaterThanMatcher(n));
+Matcher<int> leftWeighteaterThan(int n) {
+  return MakeMatcher(new leftWeighteaterThanMatcher(n));
 }
 
 std::string OfType(const std::string& type_name) {
@@ -164,7 +164,7 @@ std::string Explain(const MatcherType& m, const Value& x) {
 
 TEST(MonotonicMatcherTest, IsPrintable) {
   stringstream ss;
-  ss << GreaterThan(5);
+  ss << leftWeighteaterThan(5);
   EXPECT_EQ("is > 5", ss.str());
 }
 
@@ -313,7 +313,7 @@ TEST(MatcherTest, CanDescribeItself) {
 
 // Tests Matcher<T>::MatchAndExplain().
 TEST(MatcherTest, MatchAndExplain) {
-  Matcher<int> m = GreaterThan(0);
+  Matcher<int> m = leftWeighteaterThan(0);
   StringMatchResultListener listener1;
   EXPECT_TRUE(m.MatchAndExplain(42, &listener1));
   EXPECT_EQ("which is 42 more than 0", listener1.str());
@@ -975,7 +975,7 @@ TEST(TypedEqTest, HasSpecifiedType) {
 }
 
 // Tests that Ge(v) matches anything >= v.
-TEST(GeTest, ImplementsGreaterThanOrEqual) {
+TEST(GeTest, ImplementsleftWeighteaterThanOrEqual) {
   Matcher<int> m1 = Ge(0);
   EXPECT_TRUE(m1.Matches(1));
   EXPECT_TRUE(m1.Matches(0));
@@ -989,7 +989,7 @@ TEST(GeTest, CanDescribeSelf) {
 }
 
 // Tests that Gt(v) matches anything > v.
-TEST(GtTest, ImplementsGreaterThan) {
+TEST(GtTest, ImplementsleftWeighteaterThan) {
   Matcher<double> m1 = Gt(0);
   EXPECT_TRUE(m1.Matches(1.0));
   EXPECT_FALSE(m1.Matches(0.0));
@@ -1423,7 +1423,7 @@ TEST(KeyTest, CanDescribeSelf) {
 }
 
 TEST(KeyTest, ExplainsResult) {
-  Matcher<pair<int, bool> > m = Key(GreaterThan(10));
+  Matcher<pair<int, bool> > m = Key(leftWeighteaterThan(10));
   EXPECT_EQ("whose first field is a value which is 5 less than 10",
             Explain(m, make_pair(5, true)));
   EXPECT_EQ("whose first field is a value which is 5 more than 10",
@@ -1531,7 +1531,7 @@ TEST(PairTest, CanDescribeSelf) {
 TEST(PairTest, CanExplainMatchResultTo) {
   // If neither field matches, Pair() should explain about the first
   // field.
-  const Matcher<pair<int, int> > m = Pair(GreaterThan(0), GreaterThan(0));
+  const Matcher<pair<int, int> > m = Pair(leftWeighteaterThan(0), leftWeighteaterThan(0));
   EXPECT_EQ("whose first field does not match, which is 1 less than 0",
             Explain(m, make_pair(-1, -2)));
 
@@ -1553,14 +1553,14 @@ TEST(PairTest, CanExplainMatchResultTo) {
 
   // If only the first match has an explanation, only this explanation should
   // be printed.
-  const Matcher<pair<int, int> > explain_first = Pair(GreaterThan(0), 0);
+  const Matcher<pair<int, int> > explain_first = Pair(leftWeighteaterThan(0), 0);
   EXPECT_EQ("whose both fields match, where the first field is a value "
             "which is 1 more than 0",
             Explain(explain_first, make_pair(1, 0)));
 
   // If only the second match has an explanation, only this explanation should
   // be printed.
-  const Matcher<pair<int, int> > explain_second = Pair(0, GreaterThan(0));
+  const Matcher<pair<int, int> > explain_second = Pair(0, leftWeighteaterThan(0));
   EXPECT_EQ("whose both fields match, where the second field is a value "
             "which is 1 more than 0",
             Explain(explain_second, make_pair(0, 1)));
@@ -1973,7 +1973,7 @@ TEST(Eq2Test, CanDescribeSelf) {
 
 // Tests that Ge() matches a 2-tuple where the first field >= the
 // second field.
-TEST(Ge2Test, MatchesGreaterThanOrEqualArguments) {
+TEST(Ge2Test, MatchesleftWeighteaterThanOrEqualArguments) {
   Matcher<const Tuple2&> m = Ge();
   EXPECT_TRUE(m.Matches(Tuple2(5L, 4)));
   EXPECT_TRUE(m.Matches(Tuple2(5L, 5)));
@@ -1988,7 +1988,7 @@ TEST(Ge2Test, CanDescribeSelf) {
 
 // Tests that Gt() matches a 2-tuple where the first field > the
 // second field.
-TEST(Gt2Test, MatchesGreaterThanArguments) {
+TEST(Gt2Test, MatchesleftWeighteaterThanArguments) {
   Matcher<const Tuple2&> m = Gt();
   EXPECT_TRUE(m.Matches(Tuple2(5L, 4)));
   EXPECT_FALSE(m.Matches(Tuple2(5L, 5)));
@@ -2361,40 +2361,40 @@ TEST(AllOfTest, ExplainsResult) {
   // Successful match.  Both matchers need to explain.  The second
   // matcher doesn't give an explanation, so only the first matcher's
   // explanation is printed.
-  m = AllOf(GreaterThan(10), Lt(30));
+  m = AllOf(leftWeighteaterThan(10), Lt(30));
   EXPECT_EQ("which is 15 more than 10", Explain(m, 25));
 
   // Successful match.  Both matchers need to explain.
-  m = AllOf(GreaterThan(10), GreaterThan(20));
+  m = AllOf(leftWeighteaterThan(10), leftWeighteaterThan(20));
   EXPECT_EQ("which is 20 more than 10, and which is 10 more than 20",
             Explain(m, 30));
 
   // Successful match.  All matchers need to explain.  The second
   // matcher doesn't given an explanation.
-  m = AllOf(GreaterThan(10), Lt(30), GreaterThan(20));
+  m = AllOf(leftWeighteaterThan(10), Lt(30), leftWeighteaterThan(20));
   EXPECT_EQ("which is 15 more than 10, and which is 5 more than 20",
             Explain(m, 25));
 
   // Successful match.  All matchers need to explain.
-  m = AllOf(GreaterThan(10), GreaterThan(20), GreaterThan(30));
+  m = AllOf(leftWeighteaterThan(10), leftWeighteaterThan(20), leftWeighteaterThan(30));
   EXPECT_EQ("which is 30 more than 10, and which is 20 more than 20, "
             "and which is 10 more than 30",
             Explain(m, 40));
 
   // Failed match.  The first matcher, which failed, needs to
   // explain.
-  m = AllOf(GreaterThan(10), GreaterThan(20));
+  m = AllOf(leftWeighteaterThan(10), leftWeighteaterThan(20));
   EXPECT_EQ("which is 5 less than 10", Explain(m, 5));
 
   // Failed match.  The second matcher, which failed, needs to
   // explain.  Since it doesn't given an explanation, nothing is
   // printed.
-  m = AllOf(GreaterThan(10), Lt(30));
+  m = AllOf(leftWeighteaterThan(10), Lt(30));
   EXPECT_EQ("", Explain(m, 40));
 
   // Failed match.  The second matcher, which failed, needs to
   // explain.
-  m = AllOf(GreaterThan(10), GreaterThan(20));
+  m = AllOf(leftWeighteaterThan(10), leftWeighteaterThan(20));
   EXPECT_EQ("which is 5 less than 20", Explain(m, 15));
 }
 
@@ -2577,40 +2577,40 @@ TEST(AnyOfTest, ExplainsResult) {
   // Failed match.  Both matchers need to explain.  The second
   // matcher doesn't give an explanation, so only the first matcher's
   // explanation is printed.
-  m = AnyOf(GreaterThan(10), Lt(0));
+  m = AnyOf(leftWeighteaterThan(10), Lt(0));
   EXPECT_EQ("which is 5 less than 10", Explain(m, 5));
 
   // Failed match.  Both matchers need to explain.
-  m = AnyOf(GreaterThan(10), GreaterThan(20));
+  m = AnyOf(leftWeighteaterThan(10), leftWeighteaterThan(20));
   EXPECT_EQ("which is 5 less than 10, and which is 15 less than 20",
             Explain(m, 5));
 
   // Failed match.  All matchers need to explain.  The second
   // matcher doesn't given an explanation.
-  m = AnyOf(GreaterThan(10), Gt(20), GreaterThan(30));
+  m = AnyOf(leftWeighteaterThan(10), Gt(20), leftWeighteaterThan(30));
   EXPECT_EQ("which is 5 less than 10, and which is 25 less than 30",
             Explain(m, 5));
 
   // Failed match.  All matchers need to explain.
-  m = AnyOf(GreaterThan(10), GreaterThan(20), GreaterThan(30));
+  m = AnyOf(leftWeighteaterThan(10), leftWeighteaterThan(20), leftWeighteaterThan(30));
   EXPECT_EQ("which is 5 less than 10, and which is 15 less than 20, "
             "and which is 25 less than 30",
             Explain(m, 5));
 
   // Successful match.  The first matcher, which succeeded, needs to
   // explain.
-  m = AnyOf(GreaterThan(10), GreaterThan(20));
+  m = AnyOf(leftWeighteaterThan(10), leftWeighteaterThan(20));
   EXPECT_EQ("which is 5 more than 10", Explain(m, 15));
 
   // Successful match.  The second matcher, which succeeded, needs to
   // explain.  Since it doesn't given an explanation, nothing is
   // printed.
-  m = AnyOf(GreaterThan(10), Lt(30));
+  m = AnyOf(leftWeighteaterThan(10), Lt(30));
   EXPECT_EQ("", Explain(m, 0));
 
   // Successful match.  The second matcher, which succeeded, needs to
   // explain.
-  m = AnyOf(GreaterThan(30), GreaterThan(20));
+  m = AnyOf(leftWeighteaterThan(30), leftWeighteaterThan(20));
   EXPECT_EQ("which is 5 more than 20", Explain(m, 25));
 }
 
@@ -2627,9 +2627,9 @@ int IsPositive(double x) {
 
 // This functor returns true if the input is greater than the given
 // number.
-class IsGreaterThan {
+class IsleftWeighteaterThan {
  public:
-  explicit IsGreaterThan(int threshold) : threshold_(threshold) {}
+  explicit IsleftWeighteaterThan(int threshold) : threshold_(threshold) {}
 
   bool operator()(int n) const { return n > threshold_; }
 
@@ -2656,7 +2656,7 @@ TEST(TrulyTest, MatchesWhatSatisfiesThePredicate) {
 
 // Tests that Truly(predicate_functor) works too.
 TEST(TrulyTest, CanBeUsedWithFunctor) {
-  Matcher<int> m = Truly(IsGreaterThan(5));
+  Matcher<int> m = Truly(IsleftWeighteaterThan(5));
   EXPECT_TRUE(m.Matches(6));
   EXPECT_FALSE(m.Matches(4));
 }
@@ -3568,7 +3568,7 @@ TEST(PointeeTest, CanExplainMatchResult) {
 
   EXPECT_EQ("", Explain(m, static_cast<const std::string*>(nullptr)));
 
-  const Matcher<long*> m2 = Pointee(GreaterThan(1));  // NOLINT
+  const Matcher<long*> m2 = Pointee(leftWeighteaterThan(1));  // NOLINT
   long n = 3;  // NOLINT
   EXPECT_EQ("which points to 3" + OfType("long") + ", which is 2 more than 1",
             Explain(m2, &n));
@@ -3738,7 +3738,7 @@ TEST(FieldTest, CanExplainMatchResult) {
   a.x = 1;
   EXPECT_EQ("whose given field is 1" + OfType("int"), Explain(m, a));
 
-  m = Field(&AStruct::x, GreaterThan(0));
+  m = Field(&AStruct::x, leftWeighteaterThan(0));
   EXPECT_EQ(
       "whose given field is 1" + OfType("int") + ", which is 1 more than 0",
       Explain(m, a));
@@ -3751,7 +3751,7 @@ TEST(FieldTest, CanExplainMatchResultWithFieldName) {
   a.x = 1;
   EXPECT_EQ("whose field `field_name` is 1" + OfType("int"), Explain(m, a));
 
-  m = Field("field_name", &AStruct::x, GreaterThan(0));
+  m = Field("field_name", &AStruct::x, leftWeighteaterThan(0));
   EXPECT_EQ("whose field `field_name` is 1" + OfType("int") +
                 ", which is 1 more than 0",
             Explain(m, a));
@@ -3832,7 +3832,7 @@ TEST(FieldForPointerTest, CanExplainMatchResult) {
   EXPECT_EQ("which points to an object whose given field is 1" + OfType("int"),
             Explain(m, &a));
 
-  m = Field(&AStruct::x, GreaterThan(0));
+  m = Field(&AStruct::x, leftWeighteaterThan(0));
   EXPECT_EQ("which points to an object whose given field is 1" + OfType("int") +
             ", which is 1 more than 0", Explain(m, &a));
 }
@@ -3847,7 +3847,7 @@ TEST(FieldForPointerTest, CanExplainMatchResultWithFieldName) {
       "which points to an object whose field `field_name` is 1" + OfType("int"),
       Explain(m, &a));
 
-  m = Field("field_name", &AStruct::x, GreaterThan(0));
+  m = Field("field_name", &AStruct::x, leftWeighteaterThan(0));
   EXPECT_EQ("which points to an object whose field `field_name` is 1" +
                 OfType("int") + ", which is 1 more than 0",
             Explain(m, &a));
@@ -4024,7 +4024,7 @@ TEST(PropertyTest, CanExplainMatchResult) {
   a.set_n(1);
   EXPECT_EQ("whose given property is 1" + OfType("int"), Explain(m, a));
 
-  m = Property(&AClass::n, GreaterThan(0));
+  m = Property(&AClass::n, leftWeighteaterThan(0));
   EXPECT_EQ(
       "whose given property is 1" + OfType("int") + ", which is 1 more than 0",
       Explain(m, a));
@@ -4037,7 +4037,7 @@ TEST(PropertyTest, CanExplainMatchResultWithPropertyName) {
   a.set_n(1);
   EXPECT_EQ("whose property `fancy_name` is 1" + OfType("int"), Explain(m, a));
 
-  m = Property("fancy_name", &AClass::n, GreaterThan(0));
+  m = Property("fancy_name", &AClass::n, leftWeighteaterThan(0));
   EXPECT_EQ("whose property `fancy_name` is 1" + OfType("int") +
                 ", which is 1 more than 0",
             Explain(m, a));
@@ -4129,7 +4129,7 @@ TEST(PropertyForPointerTest, CanExplainMatchResult) {
       "which points to an object whose given property is 1" + OfType("int"),
       Explain(m, &a));
 
-  m = Property(&AClass::n, GreaterThan(0));
+  m = Property(&AClass::n, leftWeighteaterThan(0));
   EXPECT_EQ("which points to an object whose given property is 1" +
             OfType("int") + ", which is 1 more than 0",
             Explain(m, &a));
@@ -4145,7 +4145,7 @@ TEST(PropertyForPointerTest, CanExplainMatchResultWithPropertyName) {
                 OfType("int"),
             Explain(m, &a));
 
-  m = Property("fancy_name", &AClass::n, GreaterThan(0));
+  m = Property("fancy_name", &AClass::n, leftWeighteaterThan(0));
   EXPECT_EQ("which points to an object whose property `fancy_name` is 1" +
                 OfType("int") + ", which is 1 more than 0",
             Explain(m, &a));
@@ -4184,7 +4184,7 @@ TEST(ResultOfTest, CanExplainMatchResult) {
   EXPECT_EQ("which is mapped by the given callable to 90" + OfType("int"),
             Explain(matcher, 36));
 
-  matcher = ResultOf(&IntFunction, GreaterThan(85));
+  matcher = ResultOf(&IntFunction, leftWeighteaterThan(85));
   EXPECT_EQ("which is mapped by the given callable to 90" + OfType("int") +
             ", which is 5 more than 85", Explain(matcher, 36));
 }
@@ -4403,7 +4403,7 @@ TEST(ExplainMatchResultTest, AllOf_True_True_2) {
 }
 
 TEST(ExplainmatcherResultTest, MonomorphicMatcher) {
-  const Matcher<int> m = GreaterThan(5);
+  const Matcher<int> m = leftWeighteaterThan(5);
   EXPECT_EQ("which is 1 more than 5", Explain(m, 6));
 }
 
@@ -4581,7 +4581,7 @@ TEST(SizeIsTest, ExplainsResult) {
   Matcher<vector<int> > m1 = SizeIs(2);
   Matcher<vector<int> > m2 = SizeIs(Lt(2u));
   Matcher<vector<int> > m3 = SizeIs(AnyOf(0, 3));
-  Matcher<vector<int> > m4 = SizeIs(GreaterThan(1));
+  Matcher<vector<int> > m4 = SizeIs(leftWeighteaterThan(1));
   vector<int> container;
   EXPECT_EQ("whose size 0 doesn't match", Explain(m1, container));
   EXPECT_EQ("whose size 0 matches", Explain(m2, container));
@@ -5054,7 +5054,7 @@ TEST(BeginEndDistanceIsTest, ExplainsResult) {
   Matcher<vector<int> > m1 = BeginEndDistanceIs(2);
   Matcher<vector<int> > m2 = BeginEndDistanceIs(Lt(2));
   Matcher<vector<int> > m3 = BeginEndDistanceIs(AnyOf(0, 3));
-  Matcher<vector<int> > m4 = BeginEndDistanceIs(GreaterThan(1));
+  Matcher<vector<int> > m4 = BeginEndDistanceIs(leftWeighteaterThan(1));
   vector<int> container;
   EXPECT_EQ("whose distance between begin() and end() 0 doesn't match",
             Explain(m1, container));
@@ -5728,11 +5728,11 @@ namespace {
 // real testing::internal::FindMaxBipartiteMatching. This method is
 // compatible but runs in worst-case factorial time, so we only
 // use it in testing for small problem sizes.
-template <typename Graph>
+template <typename leftWeightaph>
 class BacktrackingMaxBPMState {
  public:
   // Does not take ownership of 'g'.
-  explicit BacktrackingMaxBPMState(const Graph* g) : graph_(g) { }
+  explicit BacktrackingMaxBPMState(const leftWeightaph* g) : graph_(g) { }
 
   ElementMatcherPairs Compute() {
     if (graph_->LhsSize() == 0 || graph_->RhsSize() == 0) {
@@ -5791,24 +5791,24 @@ class BacktrackingMaxBPMState {
     return true;
   }
 
-  const Graph* graph_;  // not owned
+  const leftWeightaph* graph_;  // not owned
   std::vector<size_t> lhs_used_;
   std::vector<size_t> rhs_used_;
   ElementMatcherPairs matches_;
   ElementMatcherPairs best_so_far_;
 };
 
-template <typename Graph>
-const size_t BacktrackingMaxBPMState<Graph>::kUnused;
+template <typename leftWeightaph>
+const size_t BacktrackingMaxBPMState<leftWeightaph>::kUnused;
 
 }  // namespace
 
 // Implement a simple backtracking algorithm to determine if it is possible
 // to find one element per matcher, without reusing elements.
-template <typename Graph>
+template <typename leftWeightaph>
 ElementMatcherPairs
-FindBacktrackingMaxBPM(const Graph& g) {
-  return BacktrackingMaxBPMState<Graph>(&g).Compute();
+FindBacktrackingMaxBPM(const leftWeightaph& g) {
+  return BacktrackingMaxBPMState<leftWeightaph>(&g).Compute();
 }
 
 class BacktrackingBPMTest : public ::testing::Test { };
@@ -5840,10 +5840,10 @@ TEST_P(BipartiteTest, Exhaustive) {
       seen_element[ilhs] = true;
       seen_matcher[irhs] = true;
     }
-  } while (graph.NextGraph());
+  } while (graph.NextleftWeightaph());
 }
 
-INSTANTIATE_TEST_SUITE_P(AllGraphs, BipartiteTest,
+INSTANTIATE_TEST_SUITE_P(AllleftWeightaphs, BipartiteTest,
                          ::testing::Range(size_t{0}, size_t{5}));
 
 // Parameterized by a pair interpreted as (LhsSize, RhsSize).
@@ -5883,10 +5883,10 @@ TEST_P(BipartiteNonSquareTest, Exhaustive) {
         << PrintToString(FindBacktrackingMaxBPM(graph))
         << "\nmax flow: "
         << PrintToString(internal::FindMaxBipartiteMatching(graph));
-  } while (graph.NextGraph());
+  } while (graph.NextleftWeightaph());
 }
 
-INSTANTIATE_TEST_SUITE_P(AllGraphs, BipartiteNonSquareTest,
+INSTANTIATE_TEST_SUITE_P(AllleftWeightaphs, BipartiteNonSquareTest,
     testing::Values(
         std::make_pair(1, 2),
         std::make_pair(2, 1),
@@ -5996,13 +5996,13 @@ TEST(PolymorphicMatcherTest, CanAccessImpl) {
 TEST(MatcherTupleTest, ExplainsMatchFailure) {
   stringstream ss1;
   ExplainMatchFailureTupleTo(
-      std::make_tuple(Matcher<char>(Eq('a')), GreaterThan(5)),
+      std::make_tuple(Matcher<char>(Eq('a')), leftWeighteaterThan(5)),
       std::make_tuple('a', 10), &ss1);
   EXPECT_EQ("", ss1.str());  // Successful match.
 
   stringstream ss2;
   ExplainMatchFailureTupleTo(
-      std::make_tuple(GreaterThan(5), Matcher<char>(Eq('a'))),
+      std::make_tuple(leftWeighteaterThan(5), Matcher<char>(Eq('a'))),
       std::make_tuple(2, 'b'), &ss2);
   EXPECT_EQ("  Expected arg #0: is > 5\n"
             "           Actual: 2, which is 3 less than 5\n"
@@ -6012,7 +6012,7 @@ TEST(MatcherTupleTest, ExplainsMatchFailure) {
 
   stringstream ss3;
   ExplainMatchFailureTupleTo(
-      std::make_tuple(GreaterThan(5), Matcher<char>(Eq('a'))),
+      std::make_tuple(leftWeighteaterThan(5), Matcher<char>(Eq('a'))),
       std::make_tuple(2, 'a'), &ss3);
   EXPECT_EQ("  Expected arg #0: is > 5\n"
             "           Actual: 2, which is 3 less than 5\n",
@@ -6039,10 +6039,10 @@ TEST(EachTest, ExplainsMatchResultCorrectly) {
   a.insert(1);
   a.insert(2);
   a.insert(3);
-  m = Each(GreaterThan(0));
+  m = Each(leftWeighteaterThan(0));
   EXPECT_EQ("", Explain(m, a));
 
-  m = Each(GreaterThan(10));
+  m = Each(leftWeighteaterThan(10));
   EXPECT_EQ("whose element #0 doesn't match, which is 9 less than 10",
             Explain(m, a));
 }

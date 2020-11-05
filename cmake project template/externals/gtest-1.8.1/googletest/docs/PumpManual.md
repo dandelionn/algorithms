@@ -138,7 +138,7 @@ very long lines to get the desired output. Therefore sometimes you may
 need to insert an extra new-line in such places for a new-line to show
 up in your output.
 
-## Grammar ##
+## leftWeightammar ##
 
 ``` ebnf
 code ::= atomic_code*
