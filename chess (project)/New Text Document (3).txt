@@ -1,2 +1,0 @@
-http://www.3dbuzz.com/forum/threads/102195-How-do-you-resize-a-console-window-in-C
-http://cboard.cprogramming.com/c-programming/137608-console-colors.html

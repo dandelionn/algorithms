@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1356775434 source:c:\code blocks\randomize\randomize().cpp
-	<iostream>
-	<stdlib.h>
-
-1356775668 source:c:\code blocks\randomize\rand().cpp
-	<iostream>
-	<stdlib.h>
-

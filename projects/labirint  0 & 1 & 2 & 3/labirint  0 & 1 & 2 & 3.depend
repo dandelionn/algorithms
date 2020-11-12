@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1356003480 source:c:\code blocks\ielabirint 1 & 0\generarea tuturor solutiilor de iesire din labirint.cpp
-	<fstream>
-	<iostream>
-
-1356031197 source:c:\code blocks\labirint  0 & 1 & 2 & 3\generarea tuturor solutiilor de iesire din labirint.cpp
-	<fstream>
-
