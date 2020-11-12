@@ -3,8 +3,11 @@ project(backtracking_test)
 
 set(
     source_files
+    src/backtracking-iterative_test.cpp        
     src/main.cpp
-    src/test.cpp
+    src/backtracking-recursive_test.cpp
+    src/subsets-using-bits_test.cpp
+    src/efficient-next-permutation_test.cpp
 )
 
 link_directories(${LIBRARY_OUTPUT_PATH})

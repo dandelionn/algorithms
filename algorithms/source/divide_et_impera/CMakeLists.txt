@@ -6,11 +6,15 @@ message("Generating ${libname} library")
 project(${libname})
 
 set(header_files
-	include/algo.h
+	include/binary-search.h  
+	include/mergesort.h  
+	include/quicksort.h
 )
 
 set(source_files
-	src/algo.cpp
+	src/binary-search.cpp
+	src/mergesort.cpp
+	src/quicksort.cpp
 )
 
 # Generate static library

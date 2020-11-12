@@ -4,7 +4,9 @@ project(divide_et_impera_test)
 set(
     source_files
     src/main.cpp
-    src/test.cpp
+    src/binary-search_test.cpp
+    src/mergesort_test.cpp
+    src/quicksort_test.cpp
 )
 
 link_directories(${LIBRARY_OUTPUT_PATH})

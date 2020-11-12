@@ -1,0 +1,3 @@
+#include <iomanip>
+
+cout<<setw(n);  afiseaza n caractere spatiu;

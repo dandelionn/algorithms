@@ -1,0 +1,42 @@
+#include <numeric>
+
+    
+    Algoritmi                                               Complexitate  
+
+  accumulate(first,last,T init)                          calculeaza suma dintre init si toate 
+                                                          elementele intervalului[first,last),prin   
+                                                          repetarea operatiei init=init+*it pentru
+                                                          fiecare iterator it din acest interval
+
+  accumulate(first,last,T init,BinOp op)                 efectueaza in mod repetat
+                                                          operatia init=op(init,*it),pentru fiecare 
+                                                          iterator it din intervalul [first,last)
+   
+  Produsul scalar
+
+ inner_product(first1,last1,first2,T init)                       calculeaza si returneaza produsul
+ inner_product(first1,last1,first2,T init,BinOp1 op1,BinOp2 op2) scalar al elementelor a doua
+                                                                 intervale.Se realizeaza in mod
+                                                                 repetat urmatoarele operatii:
+                                                                 init=init+*i1+*i2 sau 
+                                                                 init=op1(init,op2(*i1,*i2)),pentru
+                                                                 fiecare iterator i1 din intervalul
+                                                                 [first,last) si fiecare iterator
+                                                                 i2 din intervalul
+                                                                 [first2,first2+last-first)
+                                                                 Insumarea produselor elementelor  
+                                                                 corespunzatoare a doua secvente
+                                                                 se face folosind operator+ 
+                                                                 si operator* sau doua operatii
+                                                                 binare op1 si op2,specificate
+
+  Sume partiale
+  
+  partial_sum(first,last,result)                               efectueaza last+first-1 apeluri ale
+  partial_sum(first,last,result,BinOp op)                      operator+ sau ale operatorului 
+                                                               binar op 
+  Diferenta elementelor adiacente
+  
+  adjacent_difference(first,last,result)                       efectueaza last+first-1 apeluri ale
+  adjacent_difference(first,last,result,BinOp op)              operator- sau ale operatorului 
+                                                               binar op

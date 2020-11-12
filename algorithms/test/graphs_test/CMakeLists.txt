@@ -3,8 +3,14 @@ project(graphs_test)
 
 set(
     source_files
-    src/main.cpp
-    src/test.cpp
+    	src/main.cpp
+	src/algorithm-discovering-road-with-minimal-cost_test.cpp
+	src/dijkstra-algorithm_test.cpp
+	src/main.cpp
+	src/minimum-cost-spanning-tree-kruskal_test.cpp
+	src/minimum-cost-spanning-tree-prim_test.cpp
+	src/roy-floyd_test.cpp
+	src/roy-warshall-algoritm-for-discovering-road-matrix_test.cpp
 )
 
 link_directories(${LIBRARY_OUTPUT_PATH})

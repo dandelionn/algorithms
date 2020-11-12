@@ -1,0 +1,121 @@
+#include <map>
+
+map<int, char> m;    construieste un map vid cu elemente de tip pair<int,char>, utilizand 
+                     constructorul map<int,char>().Cheia este de tip int si valoarea de tip char.
+                     Elementele care vor fi inserate ulterior in map se vor ordona crescator
+                     in mod automat,in raport cu cheia.
+
+map<int, double, greater<int> > m; declara un map vid.Elementele sunt perechi cu cheia int si
+                     valoarea double.Vor fi ordonate descrescator dupa valoarea cheii.
+
+map<int, char> m(it1,it2);
+
+///Creeaza un sir de obiecte de tip pereche
+    pair<int,char> p[]={make_pair(2,'A'),
+                       make_pair(3,'B'),
+                       make_pair(1,'C')};
+
+    ///Construieste un map cu numele m.Insereaza in acesta
+    ///copii ale elementelor din intervalul [p,p+3).
+    map<int,char> m(p,p+3);
+
+Functii membru:
+m.insert(x); insereaza un element de valoare x in containerul m.
+                Pentru map.Functia determina daca in container mai exista un element y care are ordine
+             echivalenta cu cea a lui x.Daca nu,atunci creeaza un asemenea element y si il
+             initializeaza cu x,respectiv creeaza un iterator it care-l indica pe y.Daca inserarea
+             are loc functia returneaza perechea pair(it,true).Altfel,returneaza pair(it,false).
+             Mai putin riguros,daca elementul x exista deja in map,inserarea nu mai are loc si
+             membrul bool al perechii indica esuarea prin valoarea false.
+                Pentru multimap.Inserarea reuseste intotdeauna deoarece multimap admite elemente
+             cu ordine echivalenta.Functia insereaza elementul x in container,apoi returneaza un
+             iterator care desemneaza elementul inserat.
+
+m.insert(it,x);   insereaza un element de valoare x in containerul m,folosind it ca punct de plecare pentru cautarea
+             pozitiei de inserare. Pentru map nu se insereaza un element duplicat.
+             Functia returneaza un iterator la elementul de valoare x nou inserat sau care exista deja.
+
+m.insert(it1,it2);   insereaza in m o copie a tuturor elementelor din intervalul [it1,it2).
+m.erase(it);      sterge din m elementul indicat de it
+m.erase(x);       sterge din m toate elementele care au cheia egala cu x.Returneaza numarul
+                  de elemente sterse(maxim 1 pentru map).
+m.erase(it1,it2);     sterge din m toate elementele din intervalul [it1,it2)
+m1.swap(m2);          interschimba continutul containerelor m1 si m2.Containerele trebuie sa aiba amandoua acelasi
+                     tip:doua map-uri sau doua multimap-uri.
+m.clear();           sterge toate elementele din container
+
+template <class Container>
+void Scrie(Container c)
+{
+    typename Container::iterator it;
+    for(it=c.begin();it!=c.end();++it)
+        cout<<it->first<<' '<<it->second<<'\n';
+    ///sau cout<<(*it).first<<' '<<(*it).second<<'\n';
+    cout<<'\n';
+}
+
+m.insert(pair<nume, varsta>("Nelu",17));
+ m.insert(make_pair("Adi",18));
+
+Operatorul de indexare specific map.
+
+ map<string,int> agenda;
+  agenda["Voicu Alin"]=234124;  //insereaza in map o pereche(string,int) cu cheia
+                               // "Voicu Alin" si valoarea 234124
+  agenda["Vladescu Carmen"]=424234;
+  agenda["Muresan Flavia"]=345345;
+
+///Citeste cateva nume si cauta numerele lor de telefon
+    string nume;
+    while( getline(cin,nume) )
+         if(agenda.find(nume)!=agenda.end())
+             cout<<"Telefonul lui "<<nume<<" este "<<agenda[nume]<<'\n';
+         else
+             cout<<nume<<" nu este in agenda\n";
+
+    return 0;
+
+O operatie ca aceasta:agenda["Muresan Flavia"] cauta elementul cu cheia egala 
+cu "Muresan Flavia" si returneaza valoarea asociata,345345
+Daca scrieti cout<<agenda["Adi"] se cauta un element cu cheia "Adi",dar nu se gaseste.Prin urmare,
+se insereaza un nou element in map,cu cheia "Adi" si valoare implicita int(),adica 0.
+
+Daca nu doriti inserari automate in map,folositi pentru cautare functia membru find() si nu functia
+operator[].
+
+
+Tablou bidimensional;
+map<int,map<int,int> > M;  ///Cheia are tipul int.Valoarea
+                           ///asociata este un map<int,int>
+cin>>M[i][j];
+cout<<M[i][j];
+
+Operatii de cautare:
+
+m.find(x);    cauta in containerul m primul element a carui cheie are ordine de sortare echivalenta
+             cu x si returneaza un iterator la elementul gasit.Daca un asemenea element nu exista,
+             atunci returneaza end();
+
+m.count(x);   returneaza numarul de elemente din containerul m cu cheia echivalenta cu x,
+             din intervalul [lower_bound(x),upper_bound(x))(pentru map,0 sau 1)
+
+m.lower_bound(x);  returneaza un iterator la primul element a carui cheie nu este mai mica decat x.
+                   Daca un asemenea element nu exista functia returneaza end();
+
+m.upper_bound(x);  retuneaza un iterator la primul element a carui cheie este mai mare decat x.Daca
+                   un asemenea element nu exista,functia returneaza end();
+
+m.equal_range(x)   gaseste un interval care contine toate elementele a caror cheie este x.
+                   Returneaza o pereche p de iteratori,astfel incat p.first==lower_bound(x)
+                   si p.second==upper_bound(x).
+
+
+cout<<"equal_range(3): ";
+
+    it=m.equal_range(3).first;
+    do
+    {
+        cout<<it->first<<' '<<it->second<<' ';
+        it++;
+    }
+    while(it!=m.equal_range(3).second);

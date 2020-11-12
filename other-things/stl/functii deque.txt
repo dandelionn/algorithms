@@ -1,0 +1,36 @@
+clasa template deque
+#include <deque>
+
+deque<T> q1;   //Creeaza o coada vida
+deque<T> q2(n);   //Creeaza o coada cu n elemente
+deque<T> q3(n,t);   //Coada cu n elemente de valoare t
+deque<T> q4(q3),q5=q4; //Creeaza q4 prin copiere din q3 si
+                       //creeaza q5 prin copiere din q4
+
+int a[]={100,200,300,400};
+vector<int> v(a,a+4);
+deque<int> q4(&v[0],&v[0]+4); 
+
+d.push_front(x);
+d.pop_front();
+
+d.assign(n,x); insereaza n elem de valoare x;
+
+
+iter=d.insert(it,x);   //insereaza un singur element cu valoare x in secventa
+                       //controlata de d si returneaza un iterator care indica
+                       //noul element inserat
+d.insert(it,n,x);      //insereaza n elemente cu valoare x in secventa controlata de d
+                       //inaintea elementului indicat de it   
+d.insert(it,it1,it2);  //insereaza secventa definita de [it1,it2)
+                       //inaintea elementului indicat de it
+
+
+
+
+iter=d.erase(it)    //sterge elementul indicat de it din secventa controlata de d
+                    //si returneaza un iterator care desemneaza primul element ce ramane
+                    //dincolo de ultimul element sters,sau end() daca un asemenea element
+                    //nu exista
+iter=d.erase(it1,it2) //sterge elementele din intervalul [it1,it2) din secventa controlata
+                      //de d;

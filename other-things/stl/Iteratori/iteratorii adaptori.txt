@@ -1,0 +1,116 @@
+    
+    ///Cauta valoarea 3 si returneaza in it pozitia sa
+    deque<int>::iterator it=find(q.begin(),q.end(),3);
+    ///converteste it la reverse_iterator
+    deque<int>::reverse_iterator rit(it);   ///Constructor
+
+    cout<<'\n'<<*rit<<'\n';
+    
+
+    ///converteste rit la iterator:
+    it=rit.base();
+    
+
+    cout<<*it;
+---------------------------------------------------------------------------
+
+Algoritmul copy
+int a[]={1, 2, 3, 4 ,5};
+    vector<int> v(10);   ///v=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    ///Copiaza elementele 1, 2, 3, 4, 5 in v[0], v[1],...v[4]
+    copy(a,a+5,v.begin());
+
+-------------------------------------------------------------------------   
+Back insert iterators:
+
+    int a[]={1,2,3};
+    list<int> L;  /// lista vida
+    list<int>::iterator i;
+
+    ///Construieste obiectul it de tip back_insert_iterator
+    back_insert_iterator<list<int> > it(L);
+
+    *it=10;  ///Apeleaza list<int>::push_back(10);
+    it++;    ///Fara efect
+    *it=20;  ///Apeleaza list<int>::push_back(20);
+    ++it;    ///Fara efect
+    it=30;   ///Acelasi efect cu *it=30
+
+    ///Insereaza valorile 1,2,3, folosind iteratorul it
+    copy(a,a+3,it);
+
+    for(i=L.begin();i!=L.end();++i)
+       cout<<*i<<' ';30
+
+Back inserter iterators:
+    ///Insereaza la sfarsit 1 2 3,prin apelul constructorului
+    copy(a,a+3,back_insert_iterator<vector<int> >(V));
+
+    ///Insereaza la sfarsit 1 2 3,cu functia back_inserter()
+    copy(a,a+3,back_inserter(V));
+
+
+    Operatiile ++it,it++ nu au alt efect,decat acela ca returneaza iteratorul curent.
+Deci it sau *it reprezinta acelasi lucru:obiectul *this.
+    Se pot folosi numai cu containere care implementeaza push_back()
+cum ar fi:vector,string,deque,list
+----------------------------------------------------------------------------
+Front insert iterators
+
+    Se pot folosi numai cu containere care implementeaza push_front().
+Singurele containere standard care furnizeaza aceasta functie de interfata sunt list si deque.
+
+int a[]={1,2,3};
+    deque<int> Q;
+    deque<int>::iterator it;
+    
+    ///Insereaza la inceput 1 2 3,prin apelul constructorului
+    copy(a,a+3,front_insert_iterator<deque<int> >(Q) );
+    
+    ///Insereaza la inceput 1 2 3, cu funtia front_inserter()
+    copy(a,a+3,front_inserter(Q) );
+    
+    for(it=Q.begin();it!=Q.end();++it)
+       cout<<*it<<' ';
+
+------------------------------------------------------------------------------
+General insert iterators:
+
+int a[]={1, 2, 3};
+    vector<int> V;
+    vector<int>::iterator i;
+
+    ///Constructorul creeaza un general insert iterator, it
+    insert_iterator<vector<int> > it(V, V.end());
+
+    *it=10;   ///Insereaza 10 inainte de sfarsit
+    it=20;    ///Acelasi efect
+
+    ///inserter() insereaza 1,2,3, dupa al doilea element
+    copy(a, a+3, inserter(V,V.begin()+1));
+
+    for(i=V.begin();i!=V.end();++i)
+        cout<<*i<<' ';
+    
+    Toate containerele standard implementeaza functia insert(it,val).
+Prin urmare, un general inserter poate fi utilizat pentru oricare container.
+General inserters insereaza un element intr-un container, la o pozitie specificata.
+
+----------------------------------------------------------------------------------
+    Pentru a face mai comoda crearea acestor iteratori s-au definit functiile nemembre:
+ back_inserter(c); care creeaza un back insert iterator pentru containerul c;
+ front_inserter(c); care insereaza un element la inceputul containerului c;
+ inserter(cont, it); containerul cont si it pozitia de inserare
+
+ Caracteristicile insertorilor:
+
+ Nume                Clasa                    Functia apelata      Functie de creare 
+
+ Back inserter       back_insert_iterator     push_back(val)       back_inserter(cont)
+ Front inserter      front_insert_iterator    push_front(val)      front_inserter(cont)
+ General inserter    insert_iterator          insert(iter,val)     inserter(cont,iter)
+
+cont-containerul
+val-valoarea
+iter-pozitia de inserare

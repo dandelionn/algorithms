@@ -1,0 +1,105 @@
+   Agoritmi de sortare
+
+           Algoritmi                                        Complexitate
+
+   sort(first,last)                                        In medie,N*logN comparatii,          
+   sort(first,last,BinPred pr)                             unde N==last-first
+
+   stable_sort(first,last)                         Efectueaza cel mult N*((logN)^2) comparatii,unde
+   stable_sort(first,last,BinPred pr)              N==last-first.Daca exista suficienta memorie,
+                                                   atunci,prin utilizarea interna a algoritmului 
+                                                   merge sort,complexitatea se reduce la N*(logN)
+   partial_sort(first,middle,last)
+   partial_sort(first,middle,last,BinPred pr)       Aproximativ (last-first)*log(middle-first)
+                                                   comparatii
+   partial_sort_copy(first,last,result_first,result_last)            Efectueaza aproximativ 
+   partial_sort_copy(first,last,result_first,result_last,BinPred pr) (last-first)*log(min(n1,n2)) 
+                                                                     comparatii
+   nth_element(first,n,last)                                
+   nth_element(first,n,last,BinPred pr)              Liniara in medie
+
+   
+
+
+
+   Algoritmi care utilizeaza cautarea binara
+   
+   lower_bound(first,last,val)                      cel mult log(last-first)+1 comparatii
+   lower_bound(first,last,val,BinPred pr)
+   
+   upper_bound(first,last,val)                      cel mult log(last-first)+1 comparatii
+   upper_bound(first,last,val,BinPred pr)
+  
+   equal_range(first,last,val)                      cel mult 2*log(last-first)+1 comparatii
+   equal_range(first,last,val,pr)
+
+   binary_search(first,last,val)                    cel mult log(last-first)+2 comparatii
+   binary_search(first,last,val,BinPred pr)
+
+   merge(first1,last1,first2,last2,result)              cel mult (last1-first1)+(last2-first2)-1
+   merge(first1,last1,first2,last2,result,BinPred pr)   comparatii
+
+   inplace_merge(first,middle,last)                     In cazul in care exista suficienta memorie 
+   inplace_merge(first,middle,last,BinPred comp)        aditionala,se fac cel mult (last-first)-1 
+                                                        comparatii.Daca nu este memorie aditionala
+                                                        disponibila,atunci se efectueaza cel mult
+                                                        N*logN operatii(N=last-first)
+
+   Operatii pentru structuri sortate,specifice multimilor
+
+  includes(first1,last1,first2,last2)                  Efectueaza cel mult 
+  includes(first1,last1,first2,last2,BinPred pr)     2*((last1-first1)+(last2-first2))-1 comparatii
+
+  set_union(first1,last1,first2,last2,result)          cel mult  2*((last1-first1)+(last2-first2))-1 
+  set_union(first1,last1,first2,last2,result,BinPred pr)   comparatii
+
+  set_intersection(first1,last1,first2,last2,result)    cel mult  2*((last1-first1)+(last2-first2))-1
+  set_intersection(first1,last1,first2,last2,result,BinPred pr)   comparatii
+
+  set_difference(first1,last1,first2,last2,result)       cel mult 2*((last1-first1)+(last2-first2))-1
+  set_difference(first1,last1,first2,last2,result,BinPred pr)     comparatii
+ 
+  set_symmetric_difference(first1,last1,first2,last2,result)   cel mult 2*((last1-first1)+(last2-first2))-1
+  set_symmetric_difference(first1,last1,first2,last2,result,BinPred pr)   comparatii
+
+
+  Operatii cu heap-uri
+
+ make_heap(first,last)
+ make_heap(first,last,BinPred pr)                     cel mult 3*logN comparatii, unde N==last-first
+
+ push_heap(first,last)
+ push_heap(first,last,BinPred pr)                     cel mult logN comparatii, unde N==last-first
+  
+ pop_heap(first,last)
+ pop_heap(first,last,BinPred pr)                      cel mult 2*logN comparatii, unde N==last-first
+
+ sort_heap(first,last)
+ sort_heap(first,last,BinPred pr)                     cel mult N*logN comparatii, unde N==last-first
+
+  Minim si Maxim
+ 
+ min(a,b)
+ min(a,b,BinPred pr)
+ 
+ max(a,b)
+ max(a,b,BinPred pr)
+
+ min_element(first,last)
+ min_element(first,last,BinPred pr)
+ 
+ max_element(first,last)                                max(last-first-1,0) aplicari ale predicatului
+ max_element(first,last,BinPred pr)                     corespunzator
+
+ lexicographical_compare(first1,last1,first2,last2)               cel mult 2*min(last1-first1,last2-first2)
+ lexicographical_compare(first1,last1,first2,last2,BinPred pr)    comparatii,folosind predicatul corespunzator
+
+   Generarea permutarilor
+
+ next_permutation(first,last)                              cel mult (last-first)/2 interschimbari
+ next_permutation(first,last,BinPred pr)
+
+ prev_permutation(first,last)                             cel mult (last-first)/2 interschimbari
+ prev_permutation(first,last,BinPred pr)                      
+
+

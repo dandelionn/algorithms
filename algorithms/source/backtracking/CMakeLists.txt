@@ -6,11 +6,17 @@ message("Generating ${libname} library")
 project(${libname})
 
 set(header_files
-	include/algo.h
+	include/backtracking-iterative.h
+	include/efficient-next-permutation.h
+	include/backtracking-recursive.h
+	include/subsets-using-bits.h
 )
 
 set(source_files
-	src/algo.cpp
+	src/backtracking-iterative.cpp
+	src/efficient-next-permutation.cpp
+	src/backtracking-recursive.cpp
+	src/subsets-using-bits.cpp
 )
 
 # Generate static library
